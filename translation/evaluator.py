@@ -68,23 +68,22 @@ def lisp_print():
     global instruction_counter
     machine_code = []
 
-    addr -= 2
-    lisp_var_addr = addr + 1
+    lisp_var_addr = addr
+    lisp_var_type_addr = addr - 2
 
-    # копирование последний 2-х ячеек
-    machine_code.append(get_instruction(Opcode.LOAD, addr + 1))
-    machine_code.append(get_instruction(Opcode.STORE, addr + 3))
-    machine_code.append(get_instruction(Opcode.LOAD, addr))
-    machine_code.append(get_instruction(Opcode.STORE, addr + 2))
+    # копирование значения переменной
+    machine_code.append(get_instruction(Opcode.LOAD, lisp_var_addr - 1))
+    machine_code.append(get_instruction(Opcode.STORE, lisp_var_addr))
+    machine_code.append(get_instruction(Opcode.LOAD, lisp_var_type_addr))
 
     first_jump_addr = machine_code[-1]["term"] + 1
 
     # определение типа переменной
-    machine_code.append(get_instruction(Opcode.JE, first_jump_addr + 11))  # todo jump на print false
+    machine_code.append(get_instruction(Opcode.JE, first_jump_addr + 11))  # jump на print false
     machine_code.append(get_instruction(Opcode.ADD_CONST, -1))
-    machine_code.append(get_instruction(Opcode.JE, first_jump_addr + 21))  # todo jump на print integer
+    machine_code.append(get_instruction(Opcode.JE, first_jump_addr + 21))  # jump на print integer
     machine_code.append(get_instruction(Opcode.ADD_CONST, -1))
-    machine_code.append(get_instruction(Opcode.JE, first_jump_addr + 9))  # todo jump на print boolean
+    machine_code.append(get_instruction(Opcode.JE, first_jump_addr + 9))  # jump на print boolean
 
     # print string
     machine_code.append(get_instruction(Opcode.LOAD_MEM, lisp_var_addr))
@@ -92,11 +91,11 @@ def lisp_print():
 
     machine_code.append(get_instruction(Opcode.PRINT, ""))
     machine_code.append(get_instruction(Opcode.JNE, load_instruction_addr))
-    machine_code.append(get_instruction(Opcode.JMP, first_jump_addr + 23))  # todo jump в конец принта
+    machine_code.append(get_instruction(Opcode.JMP, first_jump_addr + 23))  # jump в конец принта
 
     # print boolean
     machine_code.append(get_instruction(Opcode.LOAD, lisp_var_addr))
-    machine_code.append(get_instruction(Opcode.JNE, first_jump_addr + 18))  # todo jump на print true
+    machine_code.append(get_instruction(Opcode.JNE, first_jump_addr + 18))  # jump на print true
     # print false
     machine_code.append(get_instruction(Opcode.LOAD_CONST, ord('N')))
     machine_code.append(get_instruction(Opcode.PRINT, ""))
@@ -104,17 +103,15 @@ def lisp_print():
     machine_code.append(get_instruction(Opcode.PRINT, ""))
     machine_code.append(get_instruction(Opcode.LOAD_CONST, ord('L')))
     machine_code.append(get_instruction(Opcode.PRINT, ""))
-    machine_code.append(get_instruction(Opcode.JMP, first_jump_addr + 23))  # todo jump в конец принта
+    machine_code.append(get_instruction(Opcode.JMP, first_jump_addr + 23))  # jump в конец принта
     # print true
     machine_code.append(get_instruction(Opcode.LOAD_CONST, ord('t')))
     machine_code.append(get_instruction(Opcode.PRINT, ""))
-    machine_code.append(get_instruction(Opcode.JMP, first_jump_addr + 23))  # todo jump в конец принта
+    machine_code.append(get_instruction(Opcode.JMP, first_jump_addr + 23))  # jump в конец принта
 
     # print integer
     machine_code.append(get_instruction(Opcode.LOAD, lisp_var_addr))
     machine_code.append(get_instruction(Opcode.PRINT_INT, ""))
-
-    addr += 4
 
     return machine_code
 
