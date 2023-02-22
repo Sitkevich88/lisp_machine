@@ -7,7 +7,7 @@ from collections import namedtuple
 from enum import Enum
 
 
-functions = ['setq', 'read', 'print', 'loop', 'if', 'when', 'return', '+', '-', '>', '<', '=', 'mod']
+functions = ['setq', 'read', 'print', 'loop', 'if', 'return', '+', '-', '>', '<', '=', 'mod']
 
 
 class Opcode(str, Enum):
@@ -19,6 +19,7 @@ class Opcode(str, Enum):
     STORE_MEM = 'store_mem'
     ADD = 'add'
     ADD_CONST = 'addc'
+    SUB = 'sub'
     MOD = 'mod'
     PRINT = 'print'
     PRINT_INT = 'print_int'
@@ -27,6 +28,7 @@ class Opcode(str, Enum):
     CMP = 'cmp'
     JE = 'je'
     JNE = 'jne'
+    JL = 'jl'
     HLT = 'halt'
 
 

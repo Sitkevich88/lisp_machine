@@ -72,7 +72,7 @@ def convert_list_to_s_expression(lisp_list):
             prev_s_expressions.append(SymbolicExpression('setq', iter_var, iter_span[0]))
             args += split_code_into_terms(
                 add_spaces(f'(setq {iter_var} (+ {iter_var} 1))'
-                           f'(when (> {iter_var} {iter_span[1]}) (return))'
+                           f'(if (> {iter_var} {iter_span[1]}) (return))'
                            )
             )
 
@@ -94,7 +94,7 @@ def convert_list_to_s_expression(lisp_list):
 
                 if is_num(cur_term):
                     cur_term = int(cur_term)
-                elif cur_term == 't':
+                elif cur_term == 't' or cur_term == 'T':
                     cur_term = True
                 elif cur_term == 'NIL':
                     cur_term = False

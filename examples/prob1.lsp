@@ -11,7 +11,7 @@
           )
     )
     (setq i (+ i 1))
-    (when (> i 999) (return))
+    (if (> i 999) (return))
 )
 
 ( print result )

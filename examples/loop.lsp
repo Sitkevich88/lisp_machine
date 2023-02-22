@@ -2,5 +2,5 @@
 (loop
    (setq a (+ a 1))
    (print a)
-   (when (> a 19) (return))
+   (if (> a 19) (return))
 )

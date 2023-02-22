@@ -16,7 +16,7 @@ def get_all_string_values_from_s_expressions(s_expressions):
 
 def get_string_values_from_s_expression(s_expression: SymbolicExpression):
     const_strings = []
-    stringy_functions = ['setq', 'print', 'if', 'when', 'return']
+    stringy_functions = ['setq', 'print', 'if', 'return']
 
     if s_expression.operator in stringy_functions:
         for arg in s_expression.args:

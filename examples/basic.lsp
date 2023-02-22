@@ -1,3 +1,2 @@
-(setq a "school is good")
 (setq a 9)
-(print a)
+(- 6 a)

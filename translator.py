@@ -24,4 +24,4 @@ def main(args):
 
 
 if __name__ == '__main__':
-    main(['examples/basic.lsp', 'out.txt'])
+    main(['examples/prob1.lsp', 'out.txt'])
