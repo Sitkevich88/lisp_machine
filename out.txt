@@ -246,7 +246,7 @@
     },
     {
         "opcode": "jne",
-        "arg": "go to true",
+        "arg": 53,
         "term": 50
     },
     {
@@ -256,7 +256,7 @@
     },
     {
         "opcode": "je",
-        "arg": "go to false",
+        "arg": 71,
         "term": 52
     },
     {
@@ -346,7 +346,7 @@
     },
     {
         "opcode": "jmp",
-        "arg": "go to end",
+        "arg": 125,
         "term": 70
     },
     {
@@ -516,7 +516,7 @@
     },
     {
         "opcode": "jne",
-        "arg": "go to true",
+        "arg": 107,
         "term": 104
     },
     {
@@ -526,7 +526,7 @@
     },
     {
         "opcode": "je",
-        "arg": "go to false",
+        "arg": 125,
         "term": 106
     },
     {
@@ -616,7 +616,7 @@
     },
     {
         "opcode": "jmp",
-        "arg": "go to end",
+        "arg": 125,
         "term": 124
     },
     {
@@ -716,7 +716,7 @@
     },
     {
         "opcode": "jne",
-        "arg": "go to true",
+        "arg": 147,
         "term": 144
     },
     {
@@ -726,17 +726,17 @@
     },
     {
         "opcode": "je",
-        "arg": "go to false",
+        "arg": 149,
         "term": 146
     },
     {
         "opcode": "jmp",
-        "arg": "go to loop end",
+        "arg": 150,
         "term": 147
     },
     {
         "opcode": "jmp",
-        "arg": "go to end",
+        "arg": 149,
         "term": 148
     },
     {

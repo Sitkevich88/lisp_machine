@@ -47,8 +47,8 @@ def lisp_loop(expression: SymbolicExpression):
     loop_end_term = instruction_counter + 1
 
     for code in machine_code:
-        if code["term"] == 'go to loop end':
-            code["term"] = loop_end_term
+        if code["arg"] == 'go to loop end':
+            code["arg"] = loop_end_term
 
     return machine_code
 
@@ -97,10 +97,10 @@ def lisp_if(expression: SymbolicExpression):
     machine_code.append(get_instruction(Opcode.JMP, "go to end"))
     false_term = machine_code[-1]["term"] + 1
     for code in machine_code:
-        if code["term"] == "go to true":
-            code["term"] = true_term
-        elif code["term"] == "go to false":
-            code["term"] = false_term
+        if code["arg"] == "go to true":
+            code["arg"] = true_term
+        elif code["arg"] == "go to false":
+            code["arg"] = false_term
 
     #  false
     if len(expression.args) == 3:
@@ -112,8 +112,8 @@ def lisp_if(expression: SymbolicExpression):
     # add jump address
     end_term = machine_code[-1]["term"] + 1
     for code in machine_code:
-        if code["term"] == "go to end":
-            code["term"] = end_term
+        if code["arg"] == "go to end":
+            code["arg"] = end_term
 
     return machine_code
 
