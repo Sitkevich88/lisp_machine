@@ -122,11 +122,8 @@ def lisp_mod(expression: SymbolicExpression):
     global addr
     machine_code = []
 
-    for i in range(2):
-        if isinstance(expression.args[i], SymbolicExpression):
-            machine_code += convert_expression_to_instructions(expression.args[i])
-        else:
-            machine_code += push_lisp_val(expression.args[i])
+    #  сохраним два аргумента в temp
+    machine_code += store_args(expression.args)
 
     machine_code.append(get_instruction(Opcode.LOAD, addr - 3))
     machine_code.append(get_instruction(Opcode.STORE, addr))
@@ -143,6 +140,38 @@ def lisp_mod(expression: SymbolicExpression):
     machine_code.append(get_instruction(Opcode.STORE, addr - 4))
     machine_code.append(get_instruction(Opcode.LOAD, addr))
     machine_code.append(get_instruction(Opcode.STORE, addr - 3))
+
+    addr -= 2
+
+    return machine_code
+
+
+def lisp_greater_than(expression: SymbolicExpression, is_greater: bool):
+    global addr
+    machine_code = []
+
+    if not is_greater:  # is lower
+        expression.args[0], expression.args[1] = expression.args[1], expression.args[0]
+
+    # сохраним два аргумента в temp
+    machine_code += store_args(expression.args)
+    calculations_term = machine_code[-1]["term"] + 1
+
+    # calculations
+    machine_code.append(get_instruction(Opcode.LOAD, addr - 3))
+    machine_code.append(get_instruction(Opcode.SUB, addr - 1))
+    machine_code.append(get_instruction(Opcode.JG, calculations_term + 5))
+
+    # false
+    machine_code.append(get_instruction(Opcode.LOAD_CONST, 0))
+    machine_code.append(get_instruction(Opcode.JMP, calculations_term + 6))
+
+    # true
+    machine_code.append(get_instruction(Opcode.LOAD_CONST, 1))
+
+    machine_code.append(get_instruction(Opcode.STORE, addr - 3))
+    machine_code.append(get_instruction(Opcode.LOAD_CONST, LispVarType.BOOLEAN.value))
+    machine_code.append(get_instruction(Opcode.STORE, addr - 4))
 
     addr -= 2
 
@@ -393,6 +422,10 @@ def convert_expression_to_instructions(expression: SymbolicExpression):
         machine_code += lisp_plus(expression)
     elif expression.operator == '-':
         machine_code += lisp_minus(expression)
+    elif expression.operator == '>':
+        machine_code += lisp_greater_than(expression, True)
+    elif expression.operator == '<':
+        machine_code += lisp_greater_than(expression, False)
     elif expression.operator == 'mod':
         machine_code += lisp_mod(expression)
     elif expression.operator == 'if':
@@ -401,6 +434,8 @@ def convert_expression_to_instructions(expression: SymbolicExpression):
         machine_code += lisp_loop(expression)
     elif expression.operator == 'return':
         machine_code += lisp_return(expression)
+    else:
+        raise RuntimeError(f'"{expression.operator}" operator is not supported by evaluator')
 
     return machine_code
 
