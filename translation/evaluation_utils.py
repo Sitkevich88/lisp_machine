@@ -24,6 +24,8 @@ def get_string_values_from_s_expression(s_expression: SymbolicExpression):
                 const_strings += get_string_values_from_s_expression(arg)
             elif isinstance(arg, str) and arg[0] == '\"' and arg[-1] == '\"':
                 const_strings.append(convert_lisp_string_to_string(arg))
+    elif s_expression.operator == 'loop':
+        const_strings += get_all_string_values_from_s_expressions(s_expression.args)
 
     return const_strings
 

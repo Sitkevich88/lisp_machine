@@ -174,6 +174,7 @@ class ControlUnit:
             self.data_path.alu.get_right()
             self.data_path.latch_data_address_from_alu()
             self.data_path.latch_dr_from_memory()
+            self.data_path.latch_alu_registers()
             self.data_path.alu.add()
             self.data_path.latch_acc_from_alu()
 
@@ -191,6 +192,7 @@ class ControlUnit:
             self.data_path.alu.get_right()
             self.data_path.latch_data_address_from_alu()
             self.data_path.latch_dr_from_memory()
+            self.data_path.latch_alu_registers()
             self.data_path.alu.sub()
             self.data_path.latch_acc_from_alu()
 
@@ -242,8 +244,9 @@ class ControlUnit:
             self.data_path.data_memory[self.data_path.data_address],
             self.data_path.acc,
         )
+        memory = self.data_path.data_memory[:10]
 
-        return "{}".format(state)
+        return "{}, {}".format(state, memory)
 
 
 def simulation(code, input_tokens, data_memory_size, limit):
@@ -283,7 +286,7 @@ def main(args):
     output, instr_counter, ticks = simulation(code,
                                               input_tokens=input_token,
                                               data_memory_size=1000,
-                                              limit=1000)
+                                              limit=10000)
 
     print(''.join(output))
     print("instr_counter: ", instr_counter, "ticks:", ticks)

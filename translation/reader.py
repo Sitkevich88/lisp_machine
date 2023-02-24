@@ -123,7 +123,7 @@ def split_code_into_terms(code):
                 terms.append(word)
 
             if len(quotes) == 1 and pos == 0:
-                is_inside_string = True
+                is_inside_string = not is_inside_string
             elif len(quotes) == 1 and pos > 0:
                 is_inside_string = False
 

@@ -108,6 +108,7 @@ def lisp_if(expression: SymbolicExpression):
             machine_code += convert_expression_to_instructions(expression.args[2])
         else:
             machine_code += push_lisp_val(expression.args[2])
+        addr -= 2
 
     # add jump address
     end_term = machine_code[-1]["term"] + 1
@@ -315,8 +316,8 @@ def lisp_print(expression: SymbolicExpression):
     # print string
     string_term = machine_code[-1]["term"] + 1
     machine_code.append(get_instruction(Opcode.LOAD_MEM, lisp_var_addr))
-    machine_code.append(get_instruction(Opcode.PRINT, ""))
     machine_code.append(get_instruction(Opcode.JE, 'end'))  # jump на end
+    machine_code.append(get_instruction(Opcode.PRINT, ""))
     machine_code.append(get_instruction(Opcode.LOAD, lisp_var_addr))
     machine_code.append(get_instruction(Opcode.ADD_CONST, 1))
     machine_code.append(get_instruction(Opcode.STORE, lisp_var_addr))
@@ -358,6 +359,9 @@ def lisp_print(expression: SymbolicExpression):
             inst['arg'] = end_term
         elif inst['arg'] == 'integer':
             inst['arg'] = integer_term
+
+    machine_code.append(get_instruction(Opcode.LOAD_CONST, ord('\n')))
+    machine_code.append(get_instruction(Opcode.PRINT, ""))
 
     return machine_code
 
@@ -457,7 +461,7 @@ def convert_expression_to_instructions(expression: SymbolicExpression):
     return machine_code
 
 
-def store_const(const_val):
+def store_const(const_val: int):
     global addr
     machine_code = [
         get_instruction(Opcode.LOAD_CONST, const_val),
