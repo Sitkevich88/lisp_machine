@@ -24,4 +24,5 @@ def main(args):
 
 
 if __name__ == '__main__':
-    main(['examples/prob1.lsp', 'out.txt'])
+    file = 'basic'
+    main(['examples/' + file + '.lsp', 'machine_code/' + file + '.json'])

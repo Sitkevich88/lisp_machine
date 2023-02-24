@@ -1,7 +1,7 @@
 # Лабораторная работа по АК №3
-
+Ситкевич Валерий Андреевич, P33121
 ## Вариант 
-####  lisp | acc | harv | hw | instr | struct | stream | port | prob1
+lisp | acc | harv | hw | instr | struct | stream | port | prob1
 
 ## Язык программирования
 

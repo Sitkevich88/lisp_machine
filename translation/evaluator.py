@@ -11,7 +11,7 @@ class LispVarType(Enum):
 
 
 addr = 0
-instruction_counter = 0
+instruction_counter = -1
 
 read_address = 0
 read_counter = 0
@@ -305,42 +305,59 @@ def lisp_print(expression: SymbolicExpression):
     machine_code.append(get_instruction(Opcode.STORE, lisp_var_addr))
     machine_code.append(get_instruction(Opcode.LOAD, lisp_var_type_addr))
 
-    first_jump_addr = machine_code[-1]["term"] + 1
-
     # определение типа переменной
-    machine_code.append(get_instruction(Opcode.JE, first_jump_addr + 11))  # jump на print false
+    machine_code.append(get_instruction(Opcode.JE, 'false'))  # jump на print false
     machine_code.append(get_instruction(Opcode.ADD_CONST, -1))
-    machine_code.append(get_instruction(Opcode.JE, first_jump_addr + 21))  # jump на print integer
+    machine_code.append(get_instruction(Opcode.JE, 'integer'))  # jump на print integer
     machine_code.append(get_instruction(Opcode.ADD_CONST, -1))
-    machine_code.append(get_instruction(Opcode.JE, first_jump_addr + 9))  # jump на print boolean
+    machine_code.append(get_instruction(Opcode.JE, 'boolean'))  # jump на print boolean
 
     # print string
+    string_term = machine_code[-1]["term"] + 1
     machine_code.append(get_instruction(Opcode.LOAD_MEM, lisp_var_addr))
-    load_instruction_addr = machine_code[-1]["term"]
-
     machine_code.append(get_instruction(Opcode.PRINT, ""))
-    machine_code.append(get_instruction(Opcode.JNE, load_instruction_addr))
-    machine_code.append(get_instruction(Opcode.JMP, first_jump_addr + 23))  # jump в конец принта
+    machine_code.append(get_instruction(Opcode.JE, 'end'))  # jump на end
+    machine_code.append(get_instruction(Opcode.LOAD, lisp_var_addr))
+    machine_code.append(get_instruction(Opcode.ADD_CONST, 1))
+    machine_code.append(get_instruction(Opcode.STORE, lisp_var_addr))
+    machine_code.append(get_instruction(Opcode.JMP, string_term))  # jump в print string
 
     # print boolean
+    boolean_term = machine_code[-1]['term'] + 1
     machine_code.append(get_instruction(Opcode.LOAD, lisp_var_addr))
-    machine_code.append(get_instruction(Opcode.JNE, first_jump_addr + 18))  # jump на print true
+    machine_code.append(get_instruction(Opcode.JNE, 'true'))  # jump на print true
     # print false
+    false_term = machine_code[-1]['term'] + 1
     machine_code.append(get_instruction(Opcode.LOAD_CONST, ord('N')))
     machine_code.append(get_instruction(Opcode.PRINT, ""))
     machine_code.append(get_instruction(Opcode.LOAD_CONST, ord('I')))
     machine_code.append(get_instruction(Opcode.PRINT, ""))
     machine_code.append(get_instruction(Opcode.LOAD_CONST, ord('L')))
     machine_code.append(get_instruction(Opcode.PRINT, ""))
-    machine_code.append(get_instruction(Opcode.JMP, first_jump_addr + 23))  # jump в конец принта
+    machine_code.append(get_instruction(Opcode.JMP, 'end'))  # jump в конец принта
     # print true
+    true_term = machine_code[-1]['term'] + 1
     machine_code.append(get_instruction(Opcode.LOAD_CONST, ord('t')))
     machine_code.append(get_instruction(Opcode.PRINT, ""))
-    machine_code.append(get_instruction(Opcode.JMP, first_jump_addr + 23))  # jump в конец принта
+    machine_code.append(get_instruction(Opcode.JMP, 'end'))  # jump в конец принта
 
     # print integer
+    integer_term = machine_code[-1]['term'] + 1
     machine_code.append(get_instruction(Opcode.LOAD, lisp_var_addr))
     machine_code.append(get_instruction(Opcode.PRINT_INT, ""))
+    end_term = machine_code[-1]['term'] + 1
+
+    for inst in machine_code:
+        if inst['arg'] == 'boolean':
+            inst['arg'] = boolean_term
+        elif inst['arg'] == 'false':
+            inst['arg'] = false_term
+        elif inst['arg'] == 'true':
+            inst['arg'] = true_term
+        elif inst['arg'] == 'end':
+            inst['arg'] = end_term
+        elif inst['arg'] == 'integer':
+            inst['arg'] = integer_term
 
     return machine_code
 
@@ -392,12 +409,12 @@ def push_lisp_val(lisp_val):
         machine_code.append(get_instruction(Opcode.LOAD, var_addr + 1))
         machine_code.append(get_instruction(Opcode.STORE, addr))
         addr += 1
-    elif isinstance(lisp_val, int):
-        machine_code += store_const(LispVarType.INTEGER.value)
-        machine_code += store_const(lisp_val)
     elif isinstance(lisp_val, bool):
         machine_code += store_const(LispVarType.BOOLEAN.value)
         machine_code += store_const(1 if lisp_val else 0)
+    elif isinstance(lisp_val, int):
+        machine_code += store_const(LispVarType.INTEGER.value)
+        machine_code += store_const(lisp_val)
     else:
         # undefined
         machine_code += store_const(LispVarType.UNDEF.value)

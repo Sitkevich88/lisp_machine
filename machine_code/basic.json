@@ -1,0 +1,292 @@
+[
+    {
+        "opcode": "loadc",
+        "arg": 72,
+        "term": 0
+    },
+    {
+        "opcode": "store",
+        "arg": 0,
+        "term": 1
+    },
+    {
+        "opcode": "loadc",
+        "arg": 101,
+        "term": 2
+    },
+    {
+        "opcode": "store",
+        "arg": 1,
+        "term": 3
+    },
+    {
+        "opcode": "loadc",
+        "arg": 108,
+        "term": 4
+    },
+    {
+        "opcode": "store",
+        "arg": 2,
+        "term": 5
+    },
+    {
+        "opcode": "loadc",
+        "arg": 108,
+        "term": 6
+    },
+    {
+        "opcode": "store",
+        "arg": 3,
+        "term": 7
+    },
+    {
+        "opcode": "loadc",
+        "arg": 111,
+        "term": 8
+    },
+    {
+        "opcode": "store",
+        "arg": 4,
+        "term": 9
+    },
+    {
+        "opcode": "loadc",
+        "arg": 32,
+        "term": 10
+    },
+    {
+        "opcode": "store",
+        "arg": 5,
+        "term": 11
+    },
+    {
+        "opcode": "loadc",
+        "arg": 119,
+        "term": 12
+    },
+    {
+        "opcode": "store",
+        "arg": 6,
+        "term": 13
+    },
+    {
+        "opcode": "loadc",
+        "arg": 111,
+        "term": 14
+    },
+    {
+        "opcode": "store",
+        "arg": 7,
+        "term": 15
+    },
+    {
+        "opcode": "loadc",
+        "arg": 114,
+        "term": 16
+    },
+    {
+        "opcode": "store",
+        "arg": 8,
+        "term": 17
+    },
+    {
+        "opcode": "loadc",
+        "arg": 108,
+        "term": 18
+    },
+    {
+        "opcode": "store",
+        "arg": 9,
+        "term": 19
+    },
+    {
+        "opcode": "loadc",
+        "arg": 100,
+        "term": 20
+    },
+    {
+        "opcode": "store",
+        "arg": 10,
+        "term": 21
+    },
+    {
+        "opcode": "loadc",
+        "arg": 0,
+        "term": 22
+    },
+    {
+        "opcode": "store",
+        "arg": 11,
+        "term": 23
+    },
+    {
+        "opcode": "loadc",
+        "arg": 3,
+        "term": 24
+    },
+    {
+        "opcode": "store",
+        "arg": 12,
+        "term": 25
+    },
+    {
+        "opcode": "loadc",
+        "arg": 0,
+        "term": 26
+    },
+    {
+        "opcode": "store",
+        "arg": 13,
+        "term": 27
+    },
+    {
+        "opcode": "load",
+        "arg": 13,
+        "term": 28
+    },
+    {
+        "opcode": "store",
+        "arg": 14,
+        "term": 29
+    },
+    {
+        "opcode": "load",
+        "arg": 12,
+        "term": 30
+    },
+    {
+        "opcode": "je",
+        "arg": 45,
+        "term": 31
+    },
+    {
+        "opcode": "addc",
+        "arg": -1,
+        "term": 32
+    },
+    {
+        "opcode": "je",
+        "arg": 55,
+        "term": 33
+    },
+    {
+        "opcode": "addc",
+        "arg": -1,
+        "term": 34
+    },
+    {
+        "opcode": "je",
+        "arg": 43,
+        "term": 35
+    },
+    {
+        "opcode": "mem",
+        "arg": 14,
+        "term": 36
+    },
+    {
+        "opcode": "print",
+        "arg": "",
+        "term": 37
+    },
+    {
+        "opcode": "je",
+        "arg": 57,
+        "term": 38
+    },
+    {
+        "opcode": "load",
+        "arg": 14,
+        "term": 39
+    },
+    {
+        "opcode": "addc",
+        "arg": 1,
+        "term": 40
+    },
+    {
+        "opcode": "store",
+        "arg": 14,
+        "term": 41
+    },
+    {
+        "opcode": "jmp",
+        "arg": 36,
+        "term": 42
+    },
+    {
+        "opcode": "load",
+        "arg": 14,
+        "term": 43
+    },
+    {
+        "opcode": "jne",
+        "arg": 52,
+        "term": 44
+    },
+    {
+        "opcode": "loadc",
+        "arg": 78,
+        "term": 45
+    },
+    {
+        "opcode": "print",
+        "arg": "",
+        "term": 46
+    },
+    {
+        "opcode": "loadc",
+        "arg": 73,
+        "term": 47
+    },
+    {
+        "opcode": "print",
+        "arg": "",
+        "term": 48
+    },
+    {
+        "opcode": "loadc",
+        "arg": 76,
+        "term": 49
+    },
+    {
+        "opcode": "print",
+        "arg": "",
+        "term": 50
+    },
+    {
+        "opcode": "jmp",
+        "arg": 57,
+        "term": 51
+    },
+    {
+        "opcode": "loadc",
+        "arg": 116,
+        "term": 52
+    },
+    {
+        "opcode": "print",
+        "arg": "",
+        "term": 53
+    },
+    {
+        "opcode": "jmp",
+        "arg": 57,
+        "term": 54
+    },
+    {
+        "opcode": "load",
+        "arg": 14,
+        "term": 55
+    },
+    {
+        "opcode": "print_int",
+        "arg": "",
+        "term": 56
+    },
+    {
+        "opcode": "halt",
+        "arg": "",
+        "term": 57
+    }
+]

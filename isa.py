@@ -31,7 +31,7 @@ class Opcode(str, Enum):
     HLT = 'halt'
 
 
-class Term(namedtuple('Term', 'line pos symbol')):
+class Term(namedtuple('Term', 'pos')):
     """Описание выражения из исходного текста программы."""
     # сделано через класс, чтобы был docstring
 
@@ -50,9 +50,6 @@ def read_code(filename):
     for instr in code:
         # Конвертация строки в Opcode
         instr['opcode'] = Opcode(instr['opcode'])
-        # Конвертация списка из term в класс Term
-        if 'term' in instr:
-            instr['term'] = Term(
-                instr['term'][0], instr['term'][1], instr['term'][2])
+        instr['term'] = Term(instr['term'])
 
     return code
