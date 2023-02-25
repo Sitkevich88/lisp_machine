@@ -286,7 +286,7 @@ def main(args):
     output, instr_counter, ticks = simulation(code,
                                               input_tokens=input_token,
                                               data_memory_size=1000,
-                                              limit=10000)
+                                              limit=10000000)
 
     print(''.join(output))
     print("instr_counter: ", instr_counter, "ticks:", ticks)

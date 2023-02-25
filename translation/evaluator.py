@@ -104,11 +104,11 @@ def lisp_if(expression: SymbolicExpression):
 
     #  false
     if len(expression.args) == 3:
+        addr -= 2
         if isinstance(expression.args[2], SymbolicExpression):
             machine_code += convert_expression_to_instructions(expression.args[2])
         else:
             machine_code += push_lisp_val(expression.args[2])
-        addr -= 2
 
     # add jump address
     end_term = machine_code[-1]["term"] + 1
