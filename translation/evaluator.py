@@ -123,6 +123,21 @@ def lisp_mod(expression: SymbolicExpression):
     global addr
     machine_code = []
 
+    if isinstance(expression.args[1], int):
+        machine_code += store_args([expression.args[0]])
+        machine_code.append(get_instruction(Opcode.LOAD, addr - 1))
+
+        loop_term = machine_code[-1]['term'] + 1
+        machine_code.append(get_instruction(Opcode.STORE, addr))
+        machine_code.append(get_instruction(Opcode.ADD_CONST, - expression.args[1]))
+        machine_code.append(get_instruction(Opcode.JL, loop_term + 4))
+        machine_code.append(get_instruction(Opcode.JMP, loop_term))
+
+        machine_code.append(get_instruction(Opcode.LOAD, addr))
+        machine_code.append(get_instruction(Opcode.STORE, addr - 1))
+
+        return machine_code
+
     #  сохраним два аргумента в temp
     machine_code += store_args(expression.args)
 
@@ -150,17 +165,34 @@ def lisp_mod(expression: SymbolicExpression):
 def lisp_greater_than(expression: SymbolicExpression, is_greater: bool):
     global addr
     machine_code = []
+    calculations_term = 0
 
     if not is_greater:  # is lower
         expression.args[0], expression.args[1] = expression.args[1], expression.args[0]
 
-    # сохраним два аргумента в temp
-    machine_code += store_args(expression.args)
-    calculations_term = machine_code[-1]["term"] + 1
+    if isinstance(expression.args[0], int) or isinstance(expression.args[1], int):
+        int_index = 0 if isinstance(expression.args[0], int) else 1
+        machine_code += store_args([expression.args[1 - int_index]])
+        calculations_term = machine_code[-1]["term"] + 1
 
-    # calculations
-    machine_code.append(get_instruction(Opcode.LOAD, addr - 3))
-    machine_code.append(get_instruction(Opcode.SUB, addr - 1))
+        # calculations
+        if int_index == 0:
+            machine_code.append(get_instruction(Opcode.LOAD_CONST, expression.args[0]))
+            machine_code.append(get_instruction(Opcode.SUB, addr - 1))
+        else:
+            machine_code.append(get_instruction(Opcode.LOAD, addr - 1))
+            machine_code.append(get_instruction(Opcode.ADD_CONST, - expression.args[1]))
+
+        addr += 2
+    else:
+        # сохраним два аргумента в temp
+        machine_code += store_args(expression.args)
+
+        # calculations
+        calculations_term = machine_code[-1]["term"] + 1
+        machine_code.append(get_instruction(Opcode.LOAD, addr - 3))
+        machine_code.append(get_instruction(Opcode.SUB, addr - 1))
+
     machine_code.append(get_instruction(Opcode.JG, calculations_term + 5))
 
     # false
@@ -179,32 +211,7 @@ def lisp_greater_than(expression: SymbolicExpression, is_greater: bool):
     return machine_code
 
 
-def lisp_minus(expression: SymbolicExpression):
-    global addr
-    machine_code = []
-
-    #  считаем результат сразу, если оба аргумента числа
-    if isinstance(expression.args[0], int) and isinstance(expression.args[1], int):
-        machine_code += store_const(LispVarType.INTEGER.value)
-        machine_code += store_const(expression.args[0] - expression.args[1])
-        return machine_code
-
-    #  сохраним два аргумента в temp
-    machine_code += store_args(expression.args)
-
-    #  сам plus
-    machine_code.append(get_instruction(Opcode.LOAD, addr - 3))
-    machine_code.append(get_instruction(Opcode.SUB, addr - 1))
-    machine_code.append(get_instruction(Opcode.STORE, addr - 3))
-    machine_code.append(get_instruction(Opcode.LOAD_CONST, LispVarType.INTEGER.value))
-    machine_code.append(get_instruction(Opcode.STORE, addr - 4))
-
-    addr -= 2
-
-    return machine_code
-
-
-def lisp_plus(expression: SymbolicExpression):
+def lisp_add(expression: SymbolicExpression, is_plus: bool):
     global addr
     global lisp_vars_addresses
     machine_code = []
@@ -212,18 +219,28 @@ def lisp_plus(expression: SymbolicExpression):
     #  считаем результат сразу, если оба аргумента числа
     if isinstance(expression.args[0], int) and isinstance(expression.args[1], int):
         machine_code += store_const(LispVarType.INTEGER.value)
-        machine_code += store_const(expression.args[0] + expression.args[1])
+        if is_plus:
+            machine_code += store_const(expression.args[0] + expression.args[1])
+        else:
+            machine_code += store_const(expression.args[0] - expression.args[1])
+
         return machine_code
 
-    #  сохраним два аргумента в temp
-    machine_code += store_args(expression.args)
+    if isinstance(expression.args[0], int) or isinstance(expression.args[1], int):
+        int_index = 0 if isinstance(expression.args[0], int) else 1
 
-    #  сам plus
-    machine_code.append(get_instruction(Opcode.LOAD, addr - 3))
-    machine_code.append(get_instruction(Opcode.ADD, addr - 1))
+        machine_code += store_args([expression.args[1 - int_index]])
+        machine_code.append(get_instruction(Opcode.LOAD, addr - 1))
+        machine_code.append(get_instruction(Opcode.ADD_CONST, expression.args[int_index] * (1 if is_plus else -1)))
+        addr += 2
+    else:
+        #  сохраним два аргумента в temp
+        machine_code += store_args(expression.args)
+        #  сам add
+        machine_code.append(get_instruction(Opcode.LOAD, addr - 3))
+        machine_code.append(get_instruction(Opcode.ADD if is_plus else Opcode.SUB, addr - 1))
+
     machine_code.append(get_instruction(Opcode.STORE, addr - 3))
-    machine_code.append(get_instruction(Opcode.LOAD_CONST, LispVarType.INTEGER.value))
-    machine_code.append(get_instruction(Opcode.STORE, addr - 4))
 
     addr -= 2
 
@@ -241,14 +258,21 @@ def lisp_equal(expression: SymbolicExpression):
         machine_code += store_const(1 if expression.args[0] == expression.args[1] else 0)
         return machine_code
 
-    #  сохраним два аргумента в temp
-    machine_code += store_args(expression.args)
+    if isinstance(expression.args[0], int) or isinstance(expression.args[1], int):
+        int_index = 0 if isinstance(expression.args[0], int) else 1
 
-    #  сам equal
-    machine_code.append(get_instruction(Opcode.LOAD, addr - 3))
-    machine_code.append(get_instruction(Opcode.SUB, addr - 1))
+        machine_code += store_args([expression.args[1 - int_index]])
+        machine_code.append(get_instruction(Opcode.LOAD, addr - 1))
+        machine_code.append(get_instruction(Opcode.ADD_CONST, - expression.args[int_index]))
+        addr += 2
+    else:
+        #  сохраним два аргумента в temp
+        machine_code += store_args(expression.args)
+
+        machine_code.append(get_instruction(Opcode.LOAD, addr - 3))
+        machine_code.append(get_instruction(Opcode.SUB, addr - 1))
+
     sub_instruction_term = machine_code[-1]["term"]
-
     machine_code.append(get_instruction(Opcode.JE, sub_instruction_term + 4))  # объекты равны, загружаем единицу
     machine_code.append(get_instruction(Opcode.LOAD_CONST, 0))
     machine_code.append(get_instruction(Opcode.JMP, sub_instruction_term + 5))
@@ -268,14 +292,23 @@ def lisp_setq(expression: SymbolicExpression):
     global lisp_vars_addresses
     machine_code = []
     var_name = expression.args[0]
+    var_addr = lisp_vars_addresses[var_name]
     assert is_lisp_var(var_name), f'{var_name} is an incorrect lisp var name'
+
+    if isinstance(expression.args[1], int):
+        machine_code.append(get_instruction(Opcode.LOAD_CONST, expression.args[1]))
+        machine_code.append(get_instruction(Opcode.STORE, var_addr + 1))
+        machine_code.append(get_instruction(Opcode.STORE, addr + 1))
+        machine_code.append(get_instruction(Opcode.LOAD_CONST, LispVarType.INTEGER.value))
+        machine_code.append(get_instruction(Opcode.STORE, var_addr))
+        machine_code.append(get_instruction(Opcode.STORE, addr))
+        addr += 2
+        return machine_code
 
     if isinstance(expression.args[1], SymbolicExpression):
         machine_code += convert_expression_to_instructions(expression.args[1])
     else:
         machine_code += push_lisp_val(expression.args[1])
-
-    var_addr = lisp_vars_addresses[var_name]
 
     addr -= 2
     machine_code.append(get_instruction(Opcode.LOAD, addr))
@@ -440,9 +473,9 @@ def convert_expression_to_instructions(expression: SymbolicExpression):
     elif expression.operator == '=':
         machine_code += lisp_equal(expression)
     elif expression.operator == '+':
-        machine_code += lisp_plus(expression)
+        machine_code += lisp_add(expression, True)
     elif expression.operator == '-':
-        machine_code += lisp_minus(expression)
+        machine_code += lisp_add(expression, False)
     elif expression.operator == '>':
         machine_code += lisp_greater_than(expression, True)
     elif expression.operator == '<':
@@ -474,8 +507,9 @@ def store_const(const_val: int):
 
 def store_args(args):
     machine_code = []
+    assert len(args) <= 2, "Lisp operator has too many arguments"
 
-    for i in range(2):
+    for i in range(len(args)):
         if isinstance(args[i], SymbolicExpression):
             machine_code += convert_expression_to_instructions(args[i])
         else:
