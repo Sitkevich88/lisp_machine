@@ -1,4 +1,5 @@
 import logging
+import sys
 from isa import Opcode, read_code
 
 """
@@ -294,4 +295,4 @@ def main(args):
 
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.DEBUG)
-    main(['machine_code/basic.json', 'io/input.txt'])
+    main(sys.argv[1:])

@@ -1,17 +1,9 @@
-( setq result 0 )
-
-(setq i 0)
-(loop
-	( if
-         ( = ( mod i 3 ) 0 )
-         ( setq result ( + result i ) )
-         ( if
-              ( = ( mod i 5 ) 0 )
-              ( setq result ( + result i ) )
-          )
-    )
-    (setq i (+ i 1))
-    (if (> i 999) (return))
-)
-
-( print result )
+(setq a 0) ;вывод нечетных чисел от 0 до 20
+(print (loop
+   (if
+        ( = (mod a 2) 1)
+        (print a)
+   )
+   (setq a (+ a 1))
+   (if (> a 20) (return "Конец цикла"))
+))

@@ -1,7 +1,6 @@
 ( setq result 0 )
 
-(setq i 0)
-(loop
+(loop for i from 0 to 999 do
 	( if
          ( = ( mod i 3 ) 0 )
          ( setq result ( + result i ) )
@@ -10,8 +9,6 @@
               ( setq result ( + result i ) )
           )
     )
-    (setq i (+ i 1))
-    (if (> i 999) (return))
 )
 
 ( print result )

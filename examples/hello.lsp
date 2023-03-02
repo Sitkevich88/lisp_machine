@@ -1,2 +1,1 @@
-(setq a "hello")
-(print a)
+(print "Hello world!")

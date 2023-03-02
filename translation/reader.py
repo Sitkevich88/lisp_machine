@@ -142,7 +142,7 @@ def read(code):
     for lisp_list in lisp_lists:
         s_expressions_from_lisp_list = convert_list_to_s_expression(lisp_list)
         s_expressions += s_expressions_from_lisp_list
-        for exp in s_expressions_from_lisp_list:
-            print(exp)
+        #for exp in s_expressions_from_lisp_list:
+        #    print(exp)
 
     return s_expressions

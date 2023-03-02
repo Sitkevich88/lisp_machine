@@ -1,0 +1,469 @@
+source: |-
+  (print "Hello world!")
+input: |
+
+code: |-
+  [
+      {
+          "opcode": "loadc",
+          "arg": 72,
+          "term": 0
+      },
+      {
+          "opcode": "store",
+          "arg": 0,
+          "term": 1
+      },
+      {
+          "opcode": "loadc",
+          "arg": 101,
+          "term": 2
+      },
+      {
+          "opcode": "store",
+          "arg": 1,
+          "term": 3
+      },
+      {
+          "opcode": "loadc",
+          "arg": 108,
+          "term": 4
+      },
+      {
+          "opcode": "store",
+          "arg": 2,
+          "term": 5
+      },
+      {
+          "opcode": "loadc",
+          "arg": 108,
+          "term": 6
+      },
+      {
+          "opcode": "store",
+          "arg": 3,
+          "term": 7
+      },
+      {
+          "opcode": "loadc",
+          "arg": 111,
+          "term": 8
+      },
+      {
+          "opcode": "store",
+          "arg": 4,
+          "term": 9
+      },
+      {
+          "opcode": "loadc",
+          "arg": 32,
+          "term": 10
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 11
+      },
+      {
+          "opcode": "loadc",
+          "arg": 119,
+          "term": 12
+      },
+      {
+          "opcode": "store",
+          "arg": 6,
+          "term": 13
+      },
+      {
+          "opcode": "loadc",
+          "arg": 111,
+          "term": 14
+      },
+      {
+          "opcode": "store",
+          "arg": 7,
+          "term": 15
+      },
+      {
+          "opcode": "loadc",
+          "arg": 114,
+          "term": 16
+      },
+      {
+          "opcode": "store",
+          "arg": 8,
+          "term": 17
+      },
+      {
+          "opcode": "loadc",
+          "arg": 108,
+          "term": 18
+      },
+      {
+          "opcode": "store",
+          "arg": 9,
+          "term": 19
+      },
+      {
+          "opcode": "loadc",
+          "arg": 100,
+          "term": 20
+      },
+      {
+          "opcode": "store",
+          "arg": 10,
+          "term": 21
+      },
+      {
+          "opcode": "loadc",
+          "arg": 33,
+          "term": 22
+      },
+      {
+          "opcode": "store",
+          "arg": 11,
+          "term": 23
+      },
+      {
+          "opcode": "loadc",
+          "arg": 0,
+          "term": 24
+      },
+      {
+          "opcode": "store",
+          "arg": 12,
+          "term": 25
+      },
+      {
+          "opcode": "loadc",
+          "arg": 3,
+          "term": 26
+      },
+      {
+          "opcode": "store",
+          "arg": 13,
+          "term": 27
+      },
+      {
+          "opcode": "loadc",
+          "arg": 0,
+          "term": 28
+      },
+      {
+          "opcode": "store",
+          "arg": 14,
+          "term": 29
+      },
+      {
+          "opcode": "load",
+          "arg": 14,
+          "term": 30
+      },
+      {
+          "opcode": "store",
+          "arg": 15,
+          "term": 31
+      },
+      {
+          "opcode": "load",
+          "arg": 13,
+          "term": 32
+      },
+      {
+          "opcode": "je",
+          "arg": 47,
+          "term": 33
+      },
+      {
+          "opcode": "addc",
+          "arg": -1,
+          "term": 34
+      },
+      {
+          "opcode": "je",
+          "arg": 57,
+          "term": 35
+      },
+      {
+          "opcode": "addc",
+          "arg": -1,
+          "term": 36
+      },
+      {
+          "opcode": "je",
+          "arg": 45,
+          "term": 37
+      },
+      {
+          "opcode": "mem",
+          "arg": 15,
+          "term": 38
+      },
+      {
+          "opcode": "je",
+          "arg": 59,
+          "term": 39
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 40
+      },
+      {
+          "opcode": "load",
+          "arg": 15,
+          "term": 41
+      },
+      {
+          "opcode": "addc",
+          "arg": 1,
+          "term": 42
+      },
+      {
+          "opcode": "store",
+          "arg": 15,
+          "term": 43
+      },
+      {
+          "opcode": "jmp",
+          "arg": 38,
+          "term": 44
+      },
+      {
+          "opcode": "load",
+          "arg": 15,
+          "term": 45
+      },
+      {
+          "opcode": "jne",
+          "arg": 54,
+          "term": 46
+      },
+      {
+          "opcode": "loadc",
+          "arg": 78,
+          "term": 47
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 48
+      },
+      {
+          "opcode": "loadc",
+          "arg": 73,
+          "term": 49
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 50
+      },
+      {
+          "opcode": "loadc",
+          "arg": 76,
+          "term": 51
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 52
+      },
+      {
+          "opcode": "jmp",
+          "arg": 59,
+          "term": 53
+      },
+      {
+          "opcode": "loadc",
+          "arg": 116,
+          "term": 54
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 55
+      },
+      {
+          "opcode": "jmp",
+          "arg": 59,
+          "term": 56
+      },
+      {
+          "opcode": "load",
+          "arg": 15,
+          "term": 57
+      },
+      {
+          "opcode": "print_int",
+          "arg": "",
+          "term": 58
+      },
+      {
+          "opcode": "loadc",
+          "arg": 10,
+          "term": 59
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 60
+      },
+      {
+          "opcode": "halt",
+          "arg": "",
+          "term": 61
+      }
+  ]
+
+output: |
+  source LoC: 3 , code instr: 62
+  ============================================================
+  Hello world!
+
+  instr_counter:  126 ticks: 127
+
+log: |+
+  DEBUG machine:simulation {TICK: 0, PC: 0, ADDR: 0, OUT: 0, ACC: 0}, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 1, PC: 1, ADDR: 0, OUT: 0, ACC: 72}, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 2, PC: 2, ADDR: 0, OUT: 72, ACC: 72}, [72, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 3, PC: 3, ADDR: 0, OUT: 72, ACC: 101}, [72, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 4, PC: 4, ADDR: 1, OUT: 101, ACC: 101}, [72, 101, 0, 0, 0, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 5, PC: 5, ADDR: 1, OUT: 101, ACC: 108}, [72, 101, 0, 0, 0, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 6, PC: 6, ADDR: 2, OUT: 108, ACC: 108}, [72, 101, 108, 0, 0, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 7, PC: 7, ADDR: 2, OUT: 108, ACC: 108}, [72, 101, 108, 0, 0, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 8, PC: 8, ADDR: 3, OUT: 108, ACC: 108}, [72, 101, 108, 108, 0, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 9, PC: 9, ADDR: 3, OUT: 108, ACC: 111}, [72, 101, 108, 108, 0, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 10, PC: 10, ADDR: 4, OUT: 111, ACC: 111}, [72, 101, 108, 108, 111, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 11, PC: 11, ADDR: 4, OUT: 111, ACC: 32}, [72, 101, 108, 108, 111, 0, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 12, PC: 12, ADDR: 5, OUT: 32, ACC: 32}, [72, 101, 108, 108, 111, 32, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 13, PC: 13, ADDR: 5, OUT: 32, ACC: 119}, [72, 101, 108, 108, 111, 32, 0, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 14, PC: 14, ADDR: 6, OUT: 119, ACC: 119}, [72, 101, 108, 108, 111, 32, 119, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 15, PC: 15, ADDR: 6, OUT: 119, ACC: 111}, [72, 101, 108, 108, 111, 32, 119, 0, 0, 0]
+  DEBUG machine:simulation {TICK: 16, PC: 16, ADDR: 7, OUT: 111, ACC: 111}, [72, 101, 108, 108, 111, 32, 119, 111, 0, 0]
+  DEBUG machine:simulation {TICK: 17, PC: 17, ADDR: 7, OUT: 111, ACC: 114}, [72, 101, 108, 108, 111, 32, 119, 111, 0, 0]
+  DEBUG machine:simulation {TICK: 18, PC: 18, ADDR: 8, OUT: 114, ACC: 114}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 0]
+  DEBUG machine:simulation {TICK: 19, PC: 19, ADDR: 8, OUT: 114, ACC: 108}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 0]
+  DEBUG machine:simulation {TICK: 20, PC: 20, ADDR: 9, OUT: 108, ACC: 108}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 21, PC: 21, ADDR: 9, OUT: 108, ACC: 100}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 22, PC: 22, ADDR: 10, OUT: 100, ACC: 100}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 23, PC: 23, ADDR: 10, OUT: 100, ACC: 33}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 24, PC: 24, ADDR: 11, OUT: 33, ACC: 33}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 25, PC: 25, ADDR: 11, OUT: 33, ACC: 0}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 26, PC: 26, ADDR: 12, OUT: 0, ACC: 0}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 27, PC: 27, ADDR: 12, OUT: 0, ACC: 3}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 28, PC: 28, ADDR: 13, OUT: 3, ACC: 3}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 29, PC: 29, ADDR: 13, OUT: 3, ACC: 0}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 30, PC: 30, ADDR: 14, OUT: 0, ACC: 0}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 31, PC: 31, ADDR: 14, OUT: 0, ACC: 0}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 32, PC: 32, ADDR: 15, OUT: 0, ACC: 0}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 33, PC: 33, ADDR: 13, OUT: 3, ACC: 3}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 34, PC: 34, ADDR: 13, OUT: 3, ACC: 3}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 35, PC: 35, ADDR: 13, OUT: 3, ACC: 2}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 36, PC: 36, ADDR: 13, OUT: 3, ACC: 2}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 37, PC: 37, ADDR: 13, OUT: 3, ACC: 1}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 38, PC: 38, ADDR: 13, OUT: 3, ACC: 1}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 39, PC: 39, ADDR: 0, OUT: 72, ACC: 72}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 40, PC: 40, ADDR: 0, OUT: 72, ACC: 72}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: '' << 'H'
+  DEBUG machine:simulation {TICK: 41, PC: 41, ADDR: 0, OUT: 72, ACC: 72}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 42, PC: 42, ADDR: 15, OUT: 0, ACC: 0}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 43, PC: 43, ADDR: 15, OUT: 0, ACC: 1}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 44, PC: 44, ADDR: 15, OUT: 1, ACC: 1}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 45, PC: 38, ADDR: 15, OUT: 1, ACC: 1}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 46, PC: 39, ADDR: 1, OUT: 101, ACC: 101}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 47, PC: 40, ADDR: 1, OUT: 101, ACC: 101}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'H' << 'e'
+  DEBUG machine:simulation {TICK: 48, PC: 41, ADDR: 1, OUT: 101, ACC: 101}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 49, PC: 42, ADDR: 15, OUT: 1, ACC: 1}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 50, PC: 43, ADDR: 15, OUT: 1, ACC: 2}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 51, PC: 44, ADDR: 15, OUT: 2, ACC: 2}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 52, PC: 38, ADDR: 15, OUT: 2, ACC: 2}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 53, PC: 39, ADDR: 2, OUT: 108, ACC: 108}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 54, PC: 40, ADDR: 2, OUT: 108, ACC: 108}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'He' << 'l'
+  DEBUG machine:simulation {TICK: 55, PC: 41, ADDR: 2, OUT: 108, ACC: 108}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 56, PC: 42, ADDR: 15, OUT: 2, ACC: 2}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 57, PC: 43, ADDR: 15, OUT: 2, ACC: 3}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 58, PC: 44, ADDR: 15, OUT: 3, ACC: 3}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 59, PC: 38, ADDR: 15, OUT: 3, ACC: 3}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 60, PC: 39, ADDR: 3, OUT: 108, ACC: 108}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 61, PC: 40, ADDR: 3, OUT: 108, ACC: 108}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'Hel' << 'l'
+  DEBUG machine:simulation {TICK: 62, PC: 41, ADDR: 3, OUT: 108, ACC: 108}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 63, PC: 42, ADDR: 15, OUT: 3, ACC: 3}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 64, PC: 43, ADDR: 15, OUT: 3, ACC: 4}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 65, PC: 44, ADDR: 15, OUT: 4, ACC: 4}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 66, PC: 38, ADDR: 15, OUT: 4, ACC: 4}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 67, PC: 39, ADDR: 4, OUT: 111, ACC: 111}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 68, PC: 40, ADDR: 4, OUT: 111, ACC: 111}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'Hell' << 'o'
+  DEBUG machine:simulation {TICK: 69, PC: 41, ADDR: 4, OUT: 111, ACC: 111}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 70, PC: 42, ADDR: 15, OUT: 4, ACC: 4}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 71, PC: 43, ADDR: 15, OUT: 4, ACC: 5}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 72, PC: 44, ADDR: 15, OUT: 5, ACC: 5}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 73, PC: 38, ADDR: 15, OUT: 5, ACC: 5}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 74, PC: 39, ADDR: 5, OUT: 32, ACC: 32}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 75, PC: 40, ADDR: 5, OUT: 32, ACC: 32}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'Hello' << ' '
+  DEBUG machine:simulation {TICK: 76, PC: 41, ADDR: 5, OUT: 32, ACC: 32}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 77, PC: 42, ADDR: 15, OUT: 5, ACC: 5}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 78, PC: 43, ADDR: 15, OUT: 5, ACC: 6}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 79, PC: 44, ADDR: 15, OUT: 6, ACC: 6}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 80, PC: 38, ADDR: 15, OUT: 6, ACC: 6}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 81, PC: 39, ADDR: 6, OUT: 119, ACC: 119}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 82, PC: 40, ADDR: 6, OUT: 119, ACC: 119}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'Hello ' << 'w'
+  DEBUG machine:simulation {TICK: 83, PC: 41, ADDR: 6, OUT: 119, ACC: 119}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 84, PC: 42, ADDR: 15, OUT: 6, ACC: 6}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 85, PC: 43, ADDR: 15, OUT: 6, ACC: 7}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 86, PC: 44, ADDR: 15, OUT: 7, ACC: 7}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 87, PC: 38, ADDR: 15, OUT: 7, ACC: 7}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 88, PC: 39, ADDR: 7, OUT: 111, ACC: 111}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 89, PC: 40, ADDR: 7, OUT: 111, ACC: 111}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'Hello w' << 'o'
+  DEBUG machine:simulation {TICK: 90, PC: 41, ADDR: 7, OUT: 111, ACC: 111}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 91, PC: 42, ADDR: 15, OUT: 7, ACC: 7}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 92, PC: 43, ADDR: 15, OUT: 7, ACC: 8}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 93, PC: 44, ADDR: 15, OUT: 8, ACC: 8}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 94, PC: 38, ADDR: 15, OUT: 8, ACC: 8}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 95, PC: 39, ADDR: 8, OUT: 114, ACC: 114}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 96, PC: 40, ADDR: 8, OUT: 114, ACC: 114}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'Hello wo' << 'r'
+  DEBUG machine:simulation {TICK: 97, PC: 41, ADDR: 8, OUT: 114, ACC: 114}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 98, PC: 42, ADDR: 15, OUT: 8, ACC: 8}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 99, PC: 43, ADDR: 15, OUT: 8, ACC: 9}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 100, PC: 44, ADDR: 15, OUT: 9, ACC: 9}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 101, PC: 38, ADDR: 15, OUT: 9, ACC: 9}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 102, PC: 39, ADDR: 9, OUT: 108, ACC: 108}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 103, PC: 40, ADDR: 9, OUT: 108, ACC: 108}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'Hello wor' << 'l'
+  DEBUG machine:simulation {TICK: 104, PC: 41, ADDR: 9, OUT: 108, ACC: 108}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 105, PC: 42, ADDR: 15, OUT: 9, ACC: 9}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 106, PC: 43, ADDR: 15, OUT: 9, ACC: 10}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 107, PC: 44, ADDR: 15, OUT: 10, ACC: 10}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 108, PC: 38, ADDR: 15, OUT: 10, ACC: 10}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 109, PC: 39, ADDR: 10, OUT: 100, ACC: 100}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 110, PC: 40, ADDR: 10, OUT: 100, ACC: 100}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'Hello worl' << 'd'
+  DEBUG machine:simulation {TICK: 111, PC: 41, ADDR: 10, OUT: 100, ACC: 100}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 112, PC: 42, ADDR: 15, OUT: 10, ACC: 10}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 113, PC: 43, ADDR: 15, OUT: 10, ACC: 11}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 114, PC: 44, ADDR: 15, OUT: 11, ACC: 11}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 115, PC: 38, ADDR: 15, OUT: 11, ACC: 11}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 116, PC: 39, ADDR: 11, OUT: 33, ACC: 33}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 117, PC: 40, ADDR: 11, OUT: 33, ACC: 33}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'Hello world' << '!'
+  DEBUG machine:simulation {TICK: 118, PC: 41, ADDR: 11, OUT: 33, ACC: 33}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 119, PC: 42, ADDR: 15, OUT: 11, ACC: 11}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 120, PC: 43, ADDR: 15, OUT: 11, ACC: 12}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 121, PC: 44, ADDR: 15, OUT: 12, ACC: 12}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 122, PC: 38, ADDR: 15, OUT: 12, ACC: 12}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 123, PC: 39, ADDR: 12, OUT: 0, ACC: 0}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 124, PC: 59, ADDR: 12, OUT: 0, ACC: 0}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:simulation {TICK: 125, PC: 60, ADDR: 12, OUT: 0, ACC: 10}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  DEBUG machine:output output: 'Hello world!' << '\n'
+  DEBUG machine:simulation {TICK: 126, PC: 61, ADDR: 12, OUT: 0, ACC: 10}, [72, 101, 108, 108, 111, 32, 119, 111, 114, 108]
+  INFO machine:simulation output_buffer: Hello world!
+
+...

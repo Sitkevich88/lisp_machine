@@ -1,6 +1,7 @@
 from isa import *
 from translation.reader import read
 from translation.evaluator import evaluate
+import sys
 
 
 def translate(code):
@@ -24,5 +25,4 @@ def main(args):
 
 
 if __name__ == '__main__':
-    file = 'basic'
-    main(['examples/' + file + '.lsp', 'machine_code/' + file + '.json'])
+    main(sys.argv[1:])

@@ -42,7 +42,10 @@ def lisp_loop(expression: SymbolicExpression):
     machine_code = []
 
     loop_start_term = instruction_counter + 1
-    machine_code += iterate_over_expressions(expression.args)
+
+    for exp in expression.args:
+        machine_code += convert_expression_to_instructions(exp)
+
     machine_code.append(get_instruction(Opcode.JMP, loop_start_term))
     loop_end_term = instruction_counter + 1
 
@@ -58,10 +61,9 @@ def lisp_return(expression: SymbolicExpression):
     machine_code = []
 
     if len(expression.args) > 0:
-        if isinstance(expression.args[0], SymbolicExpression):
-            machine_code += convert_expression_to_instructions(expression.args[0])
-        else:
-            machine_code += push_lisp_val(expression.args[0])
+        machine_code += store_args([expression.args[0]])
+    else:
+        machine_code += store_args([0])
 
     machine_code.append(get_instruction(Opcode.JMP, 'go to loop end'))
 
@@ -579,7 +581,7 @@ def evaluate(s_expressions):
     global lisp_vars_addresses
     global addr
 
-    print()
+    #print()
 
     machine_code = []
     const_strings = get_all_string_values_from_s_expressions(s_expressions)
@@ -589,9 +591,9 @@ def evaluate(s_expressions):
     machine_code += load_const_strings(const_strings)
     add_buffers(read_amount)
     machine_code += add_variables(lisp_variables)
-    print('vars adds:', lisp_vars_addresses)
-    print('string adds:', strings_addresses)
-    print()
+    #print('vars adds:', lisp_vars_addresses)
+    #print('string adds:', strings_addresses)
+    #print()
 
     machine_code += iterate_over_expressions(s_expressions)
     machine_code.append(get_instruction(Opcode.HLT, ''))
