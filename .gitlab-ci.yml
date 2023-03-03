@@ -4,5 +4,7 @@ lab3-example:
     name: python-tools
     entrypoint: [""]
   script:
-    - pip install pytest-golden
+    - echo "Running unit tests..."
+    - pip3 install --no-cache-dir -r requirements.txt
     - pytest
+
