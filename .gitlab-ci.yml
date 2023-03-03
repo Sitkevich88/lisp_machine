@@ -6,5 +6,6 @@ lab3-example:
   script:
     - echo "Running unit tests..."
     - pip3 install --no-cache-dir -r requirements.txt
+    - pip install pytest
     - pytest
 
