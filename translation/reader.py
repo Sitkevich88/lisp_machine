@@ -13,8 +13,8 @@ def remove_comments(text):
 
 
 def add_spaces(text):
-    clear_text = re.sub('\(', ' ( ', text)
-    return re.sub('\)', ' ) ', clear_text)
+    clear_text = re.sub('[(]', ' ( ', text)
+    return re.sub('[)]', ' ) ', clear_text)
 
 
 def validate_brackets(text):

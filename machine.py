@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+# pylint: disable=missing-function-docstring  # чтобы не быть Капитаном Очевидностью
+# pylint: disable=invalid-name                # сохраним традиционные наименования сигналов
+# pylint: disable=consider-using-f-string     # избыточный синтаксис
+
 import logging
 import sys
 from isa import Opcode, read_code
