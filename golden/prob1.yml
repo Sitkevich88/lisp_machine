@@ -2,21 +2,912 @@ source: |-
   ( setq result 0 )
 
   (loop for i from 0 to 999 do
+    ( if
+      ( = ( mod i 3 ) 0 )
+      ( setq result ( + result i ) )
       ( if
-           ( = ( mod i 3 ) 0 )
-           ( setq result ( + result i ) )
-           ( if
-                ( = ( mod i 5 ) 0 )
-                ( setq result ( + result i ) )
-            )
+        ( = ( mod i 5 ) 0 )
+        ( setq result ( + result i ) )
       )
+    )
   )
 
   ( print result )
 input: |
 
-code: |
+code: |-
+  [
+      {
+          "opcode": "loadc",
+          "arg": 0,
+          "term": 0
+      },
+      {
+          "opcode": "store",
+          "arg": 3,
+          "term": 1
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 2
+      },
+      {
+          "opcode": "loadc",
+          "arg": 1,
+          "term": 3
+      },
+      {
+          "opcode": "store",
+          "arg": 2,
+          "term": 4
+      },
+      {
+          "opcode": "store",
+          "arg": 4,
+          "term": 5
+      },
+      {
+          "opcode": "loadc",
+          "arg": 0,
+          "term": 6
+      },
+      {
+          "opcode": "store",
+          "arg": 1,
+          "term": 7
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 8
+      },
+      {
+          "opcode": "loadc",
+          "arg": 1,
+          "term": 9
+      },
+      {
+          "opcode": "store",
+          "arg": 0,
+          "term": 10
+      },
+      {
+          "opcode": "store",
+          "arg": 4,
+          "term": 11
+      },
+      {
+          "opcode": "load",
+          "arg": 0,
+          "term": 12
+      },
+      {
+          "opcode": "store",
+          "arg": 4,
+          "term": 13
+      },
+      {
+          "opcode": "load",
+          "arg": 1,
+          "term": 14
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 15
+      },
+      {
+          "opcode": "load",
+          "arg": 5,
+          "term": 16
+      },
+      {
+          "opcode": "store",
+          "arg": 6,
+          "term": 17
+      },
+      {
+          "opcode": "addc",
+          "arg": -3,
+          "term": 18
+      },
+      {
+          "opcode": "jl",
+          "arg": 21,
+          "term": 19
+      },
+      {
+          "opcode": "jmp",
+          "arg": 17,
+          "term": 20
+      },
+      {
+          "opcode": "load",
+          "arg": 6,
+          "term": 21
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 22
+      },
+      {
+          "opcode": "load",
+          "arg": 5,
+          "term": 23
+      },
+      {
+          "opcode": "addc",
+          "arg": 0,
+          "term": 24
+      },
+      {
+          "opcode": "je",
+          "arg": 28,
+          "term": 25
+      },
+      {
+          "opcode": "loadc",
+          "arg": 0,
+          "term": 26
+      },
+      {
+          "opcode": "jmp",
+          "arg": 29,
+          "term": 27
+      },
+      {
+          "opcode": "loadc",
+          "arg": 1,
+          "term": 28
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 29
+      },
+      {
+          "opcode": "loadc",
+          "arg": 2,
+          "term": 30
+      },
+      {
+          "opcode": "store",
+          "arg": 4,
+          "term": 31
+      },
+      {
+          "opcode": "load",
+          "arg": 4,
+          "term": 32
+      },
+      {
+          "opcode": "addc",
+          "arg": -2,
+          "term": 33
+      },
+      {
+          "opcode": "jne",
+          "arg": 37,
+          "term": 34
+      },
+      {
+          "opcode": "load",
+          "arg": 5,
+          "term": 35
+      },
+      {
+          "opcode": "je",
+          "arg": 53,
+          "term": 36
+      },
+      {
+          "opcode": "load",
+          "arg": 2,
+          "term": 37
+      },
+      {
+          "opcode": "store",
+          "arg": 4,
+          "term": 38
+      },
+      {
+          "opcode": "load",
+          "arg": 3,
+          "term": 39
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 40
+      },
+      {
+          "opcode": "load",
+          "arg": 0,
+          "term": 41
+      },
+      {
+          "opcode": "store",
+          "arg": 6,
+          "term": 42
+      },
+      {
+          "opcode": "load",
+          "arg": 1,
+          "term": 43
+      },
+      {
+          "opcode": "store",
+          "arg": 7,
+          "term": 44
+      },
+      {
+          "opcode": "load",
+          "arg": 5,
+          "term": 45
+      },
+      {
+          "opcode": "add",
+          "arg": 7,
+          "term": 46
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 47
+      },
+      {
+          "opcode": "load",
+          "arg": 4,
+          "term": 48
+      },
+      {
+          "opcode": "store",
+          "arg": 2,
+          "term": 49
+      },
+      {
+          "opcode": "load",
+          "arg": 5,
+          "term": 50
+      },
+      {
+          "opcode": "store",
+          "arg": 3,
+          "term": 51
+      },
+      {
+          "opcode": "jmp",
+          "arg": 94,
+          "term": 52
+      },
+      {
+          "opcode": "load",
+          "arg": 0,
+          "term": 53
+      },
+      {
+          "opcode": "store",
+          "arg": 4,
+          "term": 54
+      },
+      {
+          "opcode": "load",
+          "arg": 1,
+          "term": 55
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 56
+      },
+      {
+          "opcode": "load",
+          "arg": 5,
+          "term": 57
+      },
+      {
+          "opcode": "store",
+          "arg": 6,
+          "term": 58
+      },
+      {
+          "opcode": "addc",
+          "arg": -5,
+          "term": 59
+      },
+      {
+          "opcode": "jl",
+          "arg": 62,
+          "term": 60
+      },
+      {
+          "opcode": "jmp",
+          "arg": 58,
+          "term": 61
+      },
+      {
+          "opcode": "load",
+          "arg": 6,
+          "term": 62
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 63
+      },
+      {
+          "opcode": "load",
+          "arg": 5,
+          "term": 64
+      },
+      {
+          "opcode": "addc",
+          "arg": 0,
+          "term": 65
+      },
+      {
+          "opcode": "je",
+          "arg": 69,
+          "term": 66
+      },
+      {
+          "opcode": "loadc",
+          "arg": 0,
+          "term": 67
+      },
+      {
+          "opcode": "jmp",
+          "arg": 70,
+          "term": 68
+      },
+      {
+          "opcode": "loadc",
+          "arg": 1,
+          "term": 69
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 70
+      },
+      {
+          "opcode": "loadc",
+          "arg": 2,
+          "term": 71
+      },
+      {
+          "opcode": "store",
+          "arg": 4,
+          "term": 72
+      },
+      {
+          "opcode": "load",
+          "arg": 4,
+          "term": 73
+      },
+      {
+          "opcode": "addc",
+          "arg": -2,
+          "term": 74
+      },
+      {
+          "opcode": "jne",
+          "arg": 78,
+          "term": 75
+      },
+      {
+          "opcode": "load",
+          "arg": 5,
+          "term": 76
+      },
+      {
+          "opcode": "je",
+          "arg": 94,
+          "term": 77
+      },
+      {
+          "opcode": "load",
+          "arg": 2,
+          "term": 78
+      },
+      {
+          "opcode": "store",
+          "arg": 4,
+          "term": 79
+      },
+      {
+          "opcode": "load",
+          "arg": 3,
+          "term": 80
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 81
+      },
+      {
+          "opcode": "load",
+          "arg": 0,
+          "term": 82
+      },
+      {
+          "opcode": "store",
+          "arg": 6,
+          "term": 83
+      },
+      {
+          "opcode": "load",
+          "arg": 1,
+          "term": 84
+      },
+      {
+          "opcode": "store",
+          "arg": 7,
+          "term": 85
+      },
+      {
+          "opcode": "load",
+          "arg": 5,
+          "term": 86
+      },
+      {
+          "opcode": "add",
+          "arg": 7,
+          "term": 87
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 88
+      },
+      {
+          "opcode": "load",
+          "arg": 4,
+          "term": 89
+      },
+      {
+          "opcode": "store",
+          "arg": 2,
+          "term": 90
+      },
+      {
+          "opcode": "load",
+          "arg": 5,
+          "term": 91
+      },
+      {
+          "opcode": "store",
+          "arg": 3,
+          "term": 92
+      },
+      {
+          "opcode": "jmp",
+          "arg": 94,
+          "term": 93
+      },
+      {
+          "opcode": "load",
+          "arg": 0,
+          "term": 94
+      },
+      {
+          "opcode": "store",
+          "arg": 6,
+          "term": 95
+      },
+      {
+          "opcode": "load",
+          "arg": 1,
+          "term": 96
+      },
+      {
+          "opcode": "store",
+          "arg": 7,
+          "term": 97
+      },
+      {
+          "opcode": "load",
+          "arg": 7,
+          "term": 98
+      },
+      {
+          "opcode": "addc",
+          "arg": 1,
+          "term": 99
+      },
+      {
+          "opcode": "store",
+          "arg": 7,
+          "term": 100
+      },
+      {
+          "opcode": "load",
+          "arg": 6,
+          "term": 101
+      },
+      {
+          "opcode": "store",
+          "arg": 0,
+          "term": 102
+      },
+      {
+          "opcode": "load",
+          "arg": 7,
+          "term": 103
+      },
+      {
+          "opcode": "store",
+          "arg": 1,
+          "term": 104
+      },
+      {
+          "opcode": "load",
+          "arg": 0,
+          "term": 105
+      },
+      {
+          "opcode": "store",
+          "arg": 8,
+          "term": 106
+      },
+      {
+          "opcode": "load",
+          "arg": 1,
+          "term": 107
+      },
+      {
+          "opcode": "store",
+          "arg": 9,
+          "term": 108
+      },
+      {
+          "opcode": "load",
+          "arg": 9,
+          "term": 109
+      },
+      {
+          "opcode": "addc",
+          "arg": -999,
+          "term": 110
+      },
+      {
+          "opcode": "jg",
+          "arg": 114,
+          "term": 111
+      },
+      {
+          "opcode": "loadc",
+          "arg": 0,
+          "term": 112
+      },
+      {
+          "opcode": "jmp",
+          "arg": 115,
+          "term": 113
+      },
+      {
+          "opcode": "loadc",
+          "arg": 1,
+          "term": 114
+      },
+      {
+          "opcode": "store",
+          "arg": 9,
+          "term": 115
+      },
+      {
+          "opcode": "loadc",
+          "arg": 2,
+          "term": 116
+      },
+      {
+          "opcode": "store",
+          "arg": 8,
+          "term": 117
+      },
+      {
+          "opcode": "load",
+          "arg": 8,
+          "term": 118
+      },
+      {
+          "opcode": "addc",
+          "arg": -2,
+          "term": 119
+      },
+      {
+          "opcode": "jne",
+          "arg": 123,
+          "term": 120
+      },
+      {
+          "opcode": "load",
+          "arg": 9,
+          "term": 121
+      },
+      {
+          "opcode": "je",
+          "arg": 129,
+          "term": 122
+      },
+      {
+          "opcode": "loadc",
+          "arg": 1,
+          "term": 123
+      },
+      {
+          "opcode": "store",
+          "arg": 8,
+          "term": 124
+      },
+      {
+          "opcode": "loadc",
+          "arg": 0,
+          "term": 125
+      },
+      {
+          "opcode": "store",
+          "arg": 9,
+          "term": 126
+      },
+      {
+          "opcode": "jmp",
+          "arg": 130,
+          "term": 127
+      },
+      {
+          "opcode": "jmp",
+          "arg": 129,
+          "term": 128
+      },
+      {
+          "opcode": "jmp",
+          "arg": 12,
+          "term": 129
+      },
+      {
+          "opcode": "load",
+          "arg": 2,
+          "term": 130
+      },
+      {
+          "opcode": "store",
+          "arg": 4,
+          "term": 131
+      },
+      {
+          "opcode": "load",
+          "arg": 3,
+          "term": 132
+      },
+      {
+          "opcode": "store",
+          "arg": 5,
+          "term": 133
+      },
+      {
+          "opcode": "load",
+          "arg": 5,
+          "term": 134
+      },
+      {
+          "opcode": "store",
+          "arg": 6,
+          "term": 135
+      },
+      {
+          "opcode": "load",
+          "arg": 4,
+          "term": 136
+      },
+      {
+          "opcode": "je",
+          "arg": 151,
+          "term": 137
+      },
+      {
+          "opcode": "addc",
+          "arg": -1,
+          "term": 138
+      },
+      {
+          "opcode": "je",
+          "arg": 161,
+          "term": 139
+      },
+      {
+          "opcode": "addc",
+          "arg": -1,
+          "term": 140
+      },
+      {
+          "opcode": "je",
+          "arg": 149,
+          "term": 141
+      },
+      {
+          "opcode": "mem",
+          "arg": 6,
+          "term": 142
+      },
+      {
+          "opcode": "je",
+          "arg": 163,
+          "term": 143
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 144
+      },
+      {
+          "opcode": "load",
+          "arg": 6,
+          "term": 145
+      },
+      {
+          "opcode": "addc",
+          "arg": 1,
+          "term": 146
+      },
+      {
+          "opcode": "store",
+          "arg": 6,
+          "term": 147
+      },
+      {
+          "opcode": "jmp",
+          "arg": 142,
+          "term": 148
+      },
+      {
+          "opcode": "load",
+          "arg": 6,
+          "term": 149
+      },
+      {
+          "opcode": "jne",
+          "arg": 158,
+          "term": 150
+      },
+      {
+          "opcode": "loadc",
+          "arg": 78,
+          "term": 151
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 152
+      },
+      {
+          "opcode": "loadc",
+          "arg": 73,
+          "term": 153
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 154
+      },
+      {
+          "opcode": "loadc",
+          "arg": 76,
+          "term": 155
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 156
+      },
+      {
+          "opcode": "jmp",
+          "arg": 163,
+          "term": 157
+      },
+      {
+          "opcode": "loadc",
+          "arg": 116,
+          "term": 158
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 159
+      },
+      {
+          "opcode": "jmp",
+          "arg": 163,
+          "term": 160
+      },
+      {
+          "opcode": "load",
+          "arg": 6,
+          "term": 161
+      },
+      {
+          "opcode": "print_int",
+          "arg": "",
+          "term": 162
+      },
+      {
+          "opcode": "loadc",
+          "arg": 10,
+          "term": 163
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 164
+      },
+      {
+          "opcode": "halt",
+          "arg": "",
+          "term": 165
+      }
+  ]
+
+log: |+
+  DEBUG machine:simulation {TICK: 0, PC: 0, ADDR: 0, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 0, POS: 0}
+  DEBUG machine:simulation {TICK: 1, PC: 1, ADDR: 0, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 3, POS: 1}
+  DEBUG machine:simulation {TICK: 2, PC: 2, ADDR: 3, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 5, POS: 2}
+  DEBUG machine:simulation {TICK: 3, PC: 3, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 1, POS: 3}
+  DEBUG machine:simulation {TICK: 4, PC: 4, ADDR: 5, OUT: 0, ACC: 1}, {OPCODE: store, ARG: 2, POS: 4}
+  DEBUG machine:simulation {TICK: 5, PC: 5, ADDR: 2, OUT: 1, ACC: 1}, {OPCODE: store, ARG: 4, POS: 5}
+  DEBUG machine:simulation {TICK: 6, PC: 6, ADDR: 4, OUT: 1, ACC: 1}, {OPCODE: loadc, ARG: 0, POS: 6}
+  DEBUG machine:simulation {TICK: 7, PC: 7, ADDR: 4, OUT: 1, ACC: 0}, {OPCODE: store, ARG: 1, POS: 7}
+  DEBUG machine:simulation {TICK: 8, PC: 8, ADDR: 1, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 5, POS: 8}
+  DEBUG machine:simulation {TICK: 9, PC: 9, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 1, POS: 9}
+  DEBUG machine:simulation {TICK: 10, PC: 10, ADDR: 5, OUT: 0, ACC: 1}, {OPCODE: store, ARG: 0, POS: 10}
+  DEBUG machine:simulation {TICK: 11, PC: 11, ADDR: 0, OUT: 1, ACC: 1}, {OPCODE: store, ARG: 4, POS: 11}
+  DEBUG machine:simulation {TICK: 12, PC: 12, ADDR: 4, OUT: 1, ACC: 1}, {OPCODE: load, ARG: 0, POS: 12}
+  DEBUG machine:simulation {TICK: 13, PC: 13, ADDR: 0, OUT: 1, ACC: 1}, {OPCODE: store, ARG: 4, POS: 13}
+  DEBUG machine:simulation {TICK: 14, PC: 14, ADDR: 4, OUT: 1, ACC: 1}, {OPCODE: load, ARG: 1, POS: 14}
+  DEBUG machine:simulation {TICK: 15, PC: 15, ADDR: 1, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 5, POS: 15}
+  DEBUG machine:simulation {TICK: 16, PC: 16, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 5, POS: 16}
+  DEBUG machine:simulation {TICK: 17, PC: 17, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 6, POS: 17}
+  DEBUG machine:simulation {TICK: 18, PC: 18, ADDR: 6, OUT: 0, ACC: 0}, {OPCODE: addc, ARG: -3, POS: 18}
+  DEBUG machine:simulation {TICK: 19, PC: 19, ADDR: 6, OUT: 0, ACC: -3}, {OPCODE: jl, ARG: 21, POS: 19}
+  DEBUG machine:simulation {TICK: 20, PC: 21, ADDR: 6, OUT: 0, ACC: -3}, {OPCODE: load, ARG: 6, POS: 21}
+  DEBUG machine:simulation {TICK: 21, PC: 22, ADDR: 6, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 5, POS: 22}
+  DEBUG machine:simulation {TICK: 22, PC: 23, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 5, POS: 23}
+  DEBUG machine:simulation {TICK: 23, PC: 24, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: addc, ARG: 0, POS: 24}
+  DEBUG machine:simulation {TICK: 24, PC: 25, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: je, ARG: 28, POS: 25}
+  DEBUG machine:simulation {TICK: 25, PC: 28, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 1, POS: 28}
+  DEBUG machine:simulation {TICK: 26, PC: 29, ADDR: 5, OUT: 0, ACC: 1}, {OPCODE: store, ARG: 5, POS: 29}
+  DEBUG machine:simulation {TICK: 27, PC: 30, ADDR: 5, OUT: 1, ACC: 1}, {OPCODE: loadc, ARG: 2, POS: 30}
+  DEBUG machine:simulation {TICK: 28, PC: 31, ADDR: 5, OUT: 1, ACC: 2}, {OPCODE: store, ARG: 4, POS: 31}
+  DEBUG machine:simulation {TICK: 29, PC: 32, ADDR: 4, OUT: 2, ACC: 2}, {OPCODE: load, ARG: 4, POS: 32}
+  DEBUG machine:simulation {TICK: 30, PC: 33, ADDR: 4, OUT: 2, ACC: 2}, {OPCODE: addc, ARG: -2, POS: 33}
+  DEBUG machine:simulation {TICK: 31, PC: 34, ADDR: 4, OUT: 2, ACC: 0}, {OPCODE: jne, ARG: 37, POS: 34}
+  DEBUG machine:simulation {TICK: 32, PC: 35, ADDR: 4, OUT: 2, ACC: 0}, {OPCODE: load, ARG: 5, POS: 35}
+  DEBUG machine:simulation {TICK: 33, PC: 36, ADDR: 5, OUT: 1, ACC: 1}, {OPCODE: je, ARG: 53, POS: 36}
+  DEBUG machine:simulation {TICK: 34, PC: 37, ADDR: 5, OUT: 1, ACC: 1}, {OPCODE: load, ARG: 2, POS: 37}
+  DEBUG machine:simulation {TICK: 35, PC: 38, ADDR: 2, OUT: 1, ACC: 1}, {OPCODE: store, ARG: 4, POS: 38}
+  DEBUG machine:simulation {TICK: 36, PC: 39, ADDR: 4, OUT: 1, ACC: 1}, {OPCODE: load, ARG: 3, POS: 39}
+  DEBUG machine:simulation {TICK: 37, PC: 40, ADDR: 3, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 5, POS: 40}
+  DEBUG machine:simulation {TICK: 38, PC: 41, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 0, POS: 41}
+  DEBUG machine:simulation {TICK: 39, PC: 42, ADDR: 0, OUT: 1, ACC: 1}, {OPCODE: store, ARG: 6, POS: 42}
+  DEBUG machine:simulation {TICK: 40, PC: 43, ADDR: 6, OUT: 1, ACC: 1}, {OPCODE: load, ARG: 1, POS: 43}
+  DEBUG machine:simulation {TICK: 41, PC: 44, ADDR: 1, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 7, POS: 44}
+  DEBUG machine:simulation {TICK: 42, PC: 45, ADDR: 7, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 5, POS: 45}
+  DEBUG machine:simulation {TICK: 43, PC: 46, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: add, ARG: 7, POS: 46}
+  DEBUG machine:simulation {TICK: 44, PC: 47, ADDR: 7, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 5, POS: 47}
+  DEBUG machine:simulation {TICK: 45, PC: 48, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 4, POS: 48}
+  DEBUG machine:simulation {TICK: 46, PC: 49, ADDR: 4, OUT: 1, ACC: 1}, {OPCODE: store, ARG: 2, POS: 49}
+  DEBUG machine:simulation {TICK: 47, PC: 50, ADDR: 2, OUT: 1, ACC: 1}, {OPCODE: load, ARG: 5, POS: 50}
+  DEBUG machine:simulation {TICK: 48, PC: 51, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 3, POS: 51}
+  DEBUG machine:simulation {TICK: 49, PC: 52, ADDR: 3, OUT: 0, ACC: 0}, {OPCODE: jmp, ARG: 94, POS: 52}
+  DEBUG machine:simulation ...
+  DEBUG machine:output_int output: '' << '233168'
+  DEBUG machine:output output: '233168' << '\n'
+  INFO machine:simulation output_buffer: 233168
 
 output: |
+  source LoC: 60 , code instr: 166
+  ============================================================
+  233168
 
-log: |
+  instr_counter:  1004088 ticks: 1004089

@@ -2,10 +2,6 @@ import logging
 import sys
 from isa import Opcode, read_code
 
-"""
-    CPU model
-"""
-
 
 class ArithmeticLogicUnit:
     def __init__(self):
@@ -84,7 +80,7 @@ class DataPath:
         self.output_buffer.append(symbol)
 
     def wr(self):
-        self.data_memory[self.data_address] = self.acc  # todo
+        self.data_memory[self.data_address] = self.acc
 
     def zero(self):
         return self.acc == 0
@@ -124,17 +120,11 @@ class ControlUnit:
             self.data_path.alu.get_right()
             self.data_path.latch_data_address_from_alu()
             self.data_path.latch_acc_from_memory()
-
-            self.program_counter += 1
         elif opcode is Opcode.LOAD_CONST:
-            if arg == -1:
-                pass
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
             self.data_path.alu.get_right()
             self.data_path.latch_acc_from_alu()
-
-            self.program_counter += 1
         elif opcode is Opcode.LOAD_MEM:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
@@ -146,16 +136,12 @@ class ControlUnit:
             self.data_path.alu.get_left()
             self.data_path.latch_data_address_from_alu()
             self.data_path.latch_acc_from_memory()
-
-            self.program_counter += 1
         elif opcode is Opcode.STORE:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
             self.data_path.alu.get_right()
             self.data_path.latch_data_address_from_alu()
             self.data_path.wr()
-
-            self.program_counter += 1
         elif opcode is Opcode.STORE_MEM:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
@@ -167,8 +153,6 @@ class ControlUnit:
             self.data_path.alu.get_right()
             self.data_path.latch_data_address_from_alu()
             self.data_path.wr()
-
-            self.program_counter += 1
         elif opcode is Opcode.ADD:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
@@ -178,15 +162,11 @@ class ControlUnit:
             self.data_path.latch_alu_registers()
             self.data_path.alu.add()
             self.data_path.latch_acc_from_alu()
-
-            self.program_counter += 1
         elif opcode is Opcode.ADD_CONST:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
             self.data_path.alu.add()
             self.data_path.latch_acc_from_alu()
-
-            self.program_counter += 1
         elif opcode is Opcode.SUB:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
@@ -196,46 +176,30 @@ class ControlUnit:
             self.data_path.latch_alu_registers()
             self.data_path.alu.sub()
             self.data_path.latch_acc_from_alu()
-
-            self.program_counter += 1
         elif opcode is Opcode.PRINT:
             self.data_path.output()
-
-            self.program_counter += 1
         elif opcode is Opcode.PRINT_INT:
             self.data_path.output_int()
-
-            self.program_counter += 1
         elif opcode is Opcode.READ:
             self.data_path.input()
-
-            self.program_counter += 1
         elif opcode is Opcode.JMP:
             self.program_counter = arg - 1
-
-            self.program_counter += 1
         elif opcode is Opcode.JE:
             if self.data_path.acc == 0:
                 self.program_counter = arg - 1
-
-            self.program_counter += 1
         elif opcode is Opcode.JNE:
             if self.data_path.acc != 0:
                 self.program_counter = arg - 1
-
-            self.program_counter += 1
         elif opcode is Opcode.JG:
             if self.data_path.acc > 0:
                 self.program_counter = arg - 1
-
-            self.program_counter += 1
         elif opcode is Opcode.JL:
             if self.data_path.acc < 0:
                 self.program_counter = arg - 1
-
-            self.program_counter += 1
         elif opcode is Opcode.HLT:
             raise StopIteration()
+
+        self.program_counter += 1
 
     def __repr__(self):
         state = "{{TICK: {}, PC: {}, ADDR: {}, OUT: {}, ACC: {}}}".format(
@@ -245,12 +209,18 @@ class ControlUnit:
             self.data_path.data_memory[self.data_path.data_address],
             self.data_path.acc,
         )
-        memory = self.data_path.data_memory[:10]
 
-        return "{}, {}".format(state, memory)
+        instr = self.program[self.program_counter]
+        instr_string = "{{OPCODE: {}, ARG: {}, POS: {}}}".format(
+            instr['opcode'].value,
+            instr['arg'],
+            instr['term'].pos
+        )
+
+        return "{}, {}".format(state, instr_string)
 
 
-def simulation(code, input_tokens, data_memory_size, limit):
+def simulation(code, input_tokens, data_memory_size, limit, debug_level):
     alu = ArithmeticLogicUnit()
     data_path = DataPath(data_memory_size, input_tokens, alu)
     control_unit = ControlUnit(code, data_path)
@@ -262,7 +232,11 @@ def simulation(code, input_tokens, data_memory_size, limit):
             assert limit > instr_counter, "too long execution, increase limit!"
             control_unit.decode_and_execute_instruction()
             instr_counter += 1
-            logging.debug('%s', control_unit)
+
+            if instr_counter < debug_level:
+                logging.debug('%s', control_unit)
+            elif instr_counter == debug_level:
+                logging.debug('...')
     except EOFError:
         logging.warning('Input buffer is empty!')
     except StopIteration:
@@ -287,7 +261,8 @@ def main(args):
     output, instr_counter, ticks = simulation(code,
                                               input_tokens=input_token,
                                               data_memory_size=1000,
-                                              limit=10000000)
+                                              limit=10000000,
+                                              debug_level=50)
 
     print(''.join(output))
     print("instr_counter: ", instr_counter, "ticks:", ticks)

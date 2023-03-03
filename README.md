@@ -16,6 +16,18 @@ lisp | acc | harv | hw | instr | struct | stream | port | prob1
 ### Организация памяти
 
 ```text
+   Instruction memory
++---------------------------------------+
+| 00  : load 1st char of 1st string     |
+| 01  : push it                         |
+| 02  : load 2nd char of 1st string     |
+| 03  : push it                         |
+|    ...                                |
+| n   : program start                   |
+|    ...                                |
++---------------------------------------+
+
+
      Data memory
 +---------------------------------------+
 |    Строки                             |
@@ -24,11 +36,11 @@ lisp | acc | harv | hw | instr | struct | stream | port | prob1
 | 01        : 2nd char of 1st string    |
 |    ...                                |
 | n         : last char of 1st string   |
-| n+1       : 0                         |
-| n+2       : 1st char of 2nd string    |
+| n + 1     : 0                         |
+| n + 2     : 1st char of 2nd string    |
 |    ...                                |
-| m-2       : last char of n string     |
-| m-1       : 0                         |
+| m - 2     : last char of n string     |
+| m - 1     : 0                         |
 +---------------------------------------+
 |    Буферы ввода                       |
 +---------------------------------------+
@@ -39,7 +51,7 @@ lisp | acc | harv | hw | instr | struct | stream | port | prob1
 | m + 100*k : n read buffer             |
 |    ...                                |
 +---------------------------------------+
-|    Переменные                         |
+|    Переменные и константы             |
 +---------------------------------------+
 | v         : type of var1              |
 | v+1       : var1                      |
@@ -50,7 +62,7 @@ lisp | acc | harv | hw | instr | struct | stream | port | prob1
 |    Промежуточные результаты           |
 +---------------------------------------+
 | t         : type of temp var1         |
-| t+1       : temp var1                 |
+| t + 1     : temp var1                 |
 |    ...                                |
 +---------------------------------------+
 ```

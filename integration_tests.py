@@ -54,8 +54,7 @@ def test_whole_by_golden(golden, caplog):
         with open(target, encoding="utf-8") as file:
             code = file.read()
 
-
         # Проверяем, что ожидания соответствуют реальности.
         assert code == golden.out["code"]
         assert stdout.getvalue() == golden.out["output"]
-        assert caplog.text == golden.out["log"]
+        assert golden.out["log"] == caplog.text

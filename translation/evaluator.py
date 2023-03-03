@@ -555,11 +555,7 @@ def add_variables(lisp_variables):
 
     for lisp_var in lisp_variables:
         lisp_vars_addresses[lisp_var] = addr
-        # store type later
-        # machine_code += store_const(LispVarType.UNDEF.value)
-        addr += 1  # если вернешь верхнюю строку, то удали это
-        # store value later
-        addr += 1
+        addr += 2
 
     return machine_code
 
@@ -577,11 +573,21 @@ def iterate_over_expressions(s_expressions):
 
 
 def evaluate(s_expressions):
-    global strings_addresses
+    global read_counter
+    global max_input_size
+    global read_address
     global lisp_vars_addresses
+    global strings_addresses
     global addr
+    global instruction_counter
 
-    #print()
+    addr = 0
+    instruction_counter = -1
+    read_address = 0
+    read_counter = 0
+    max_input_size = 0
+    lisp_vars_addresses = {}
+    strings_addresses = {}
 
     machine_code = []
     const_strings = get_all_string_values_from_s_expressions(s_expressions)
@@ -591,9 +597,6 @@ def evaluate(s_expressions):
     machine_code += load_const_strings(const_strings)
     add_buffers(read_amount)
     machine_code += add_variables(lisp_variables)
-    #print('vars adds:', lisp_vars_addresses)
-    #print('string adds:', strings_addresses)
-    #print()
 
     machine_code += iterate_over_expressions(s_expressions)
     machine_code.append(get_instruction(Opcode.HLT, ''))
