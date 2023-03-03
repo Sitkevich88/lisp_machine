@@ -10,6 +10,6 @@ test-csa-lab3:
         name: python-tools
         entrypoint: [""]
     script:
-        - pytest
+        - python3 -m pytest
         - find . -type f -name "*.py" | xargs -t pycodestyle
         - find . -type f -name "*.py" | xargs -t pylint --fail-under=9.5
