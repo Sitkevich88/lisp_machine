@@ -5,4 +5,4 @@ lab3-example:
     entrypoint: [""]
   script:
     - pip install pytest-golden
-    - python3 pytest
+    - pytest
