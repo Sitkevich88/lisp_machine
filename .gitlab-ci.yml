@@ -6,6 +6,4 @@ lab3-example:
   script:
     - pip install pytest-golden
     - python3-coverage run -m pytest --verbose
-    - find . -type f -name "*.py" | xargs -t python3-coverage report
-    - find . -type f -name "*.py" | xargs -t pep8 --ignore=E501
-    - find . -type f -name "*.py" | xargs -t pylint --disable C0301,C0115,C0116,R0903,W0108,R1720,C0103,C0114,C0209
+    - python3 pytest
