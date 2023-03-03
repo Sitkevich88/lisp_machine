@@ -1,11 +1,16 @@
-lab3-example:
-  stage: test
-  image:
-    name: python-tools
-    entrypoint: [""]
-  script:
-    - echo "Running unit tests..."
-    - pip3 install --no-cache-dir -r requirements.txt
-    - pip install pytest
-    - pytest
+stages:
+    - test
 
+before_script:
+  - python3 --version
+
+test-csa-lab3:
+    stage: test
+    image:
+        name: python-tools
+        entrypoint: [""]
+    script:
+        - cd src
+        - python3 integration_test.py
+        - find . -type f -name "*.py" | xargs -t pycodestyle
+        - find . -type f -name "*.py" | xargs -t pylint --fail-under=9.5
