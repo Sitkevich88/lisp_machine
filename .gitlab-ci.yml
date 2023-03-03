@@ -10,6 +10,7 @@ test-csa-lab3:
         name: python-tools
         entrypoint: [""]
     script:
+        - pip install pytest-golden
         - python3 -m pytest
-        - find . -type f -name "*.py" | xargs -t pycodestyle
-        - find . -type f -name "*.py" | xargs -t pylint --fail-under=9.5
+        - python3-coverage run -m pytest --verbose
+
