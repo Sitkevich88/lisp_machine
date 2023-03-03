@@ -11,6 +11,5 @@ test-csa-lab3:
         entrypoint: [""]
     script:
         - pip install pytest-golden
-        - python3 -m pytest
         - python3-coverage run -m pytest --verbose
 
