@@ -321,7 +321,7 @@ output: |
   ============================================================
   Hello world!
 
-  instr_counter:  126 ticks: 127
+  instr_counter:  126 ticks: 140
 
 log: |+
   DEBUG machine:simulation {TICK: 0, PC: 0, ADDR: 0, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 72, POS: 0}
@@ -363,19 +363,19 @@ log: |+
   DEBUG machine:simulation {TICK: 36, PC: 36, ADDR: 13, OUT: 3, ACC: 2}, {OPCODE: addc, ARG: -1, POS: 36}
   DEBUG machine:simulation {TICK: 37, PC: 37, ADDR: 13, OUT: 3, ACC: 1}, {OPCODE: je, ARG: 45, POS: 37}
   DEBUG machine:simulation {TICK: 38, PC: 38, ADDR: 13, OUT: 3, ACC: 1}, {OPCODE: mem, ARG: 15, POS: 38}
-  DEBUG machine:simulation {TICK: 39, PC: 39, ADDR: 0, OUT: 72, ACC: 72}, {OPCODE: je, ARG: 59, POS: 39}
-  DEBUG machine:simulation {TICK: 40, PC: 40, ADDR: 0, OUT: 72, ACC: 72}, {OPCODE: print, ARG: , POS: 40}
+  DEBUG machine:simulation {TICK: 40, PC: 39, ADDR: 0, OUT: 72, ACC: 72}, {OPCODE: je, ARG: 59, POS: 39}
+  DEBUG machine:simulation {TICK: 41, PC: 40, ADDR: 0, OUT: 72, ACC: 72}, {OPCODE: print, ARG: , POS: 40}
   DEBUG machine:output output: '' << 'H'
-  DEBUG machine:simulation {TICK: 41, PC: 41, ADDR: 0, OUT: 72, ACC: 72}, {OPCODE: load, ARG: 15, POS: 41}
-  DEBUG machine:simulation {TICK: 42, PC: 42, ADDR: 15, OUT: 0, ACC: 0}, {OPCODE: addc, ARG: 1, POS: 42}
-  DEBUG machine:simulation {TICK: 43, PC: 43, ADDR: 15, OUT: 0, ACC: 1}, {OPCODE: store, ARG: 15, POS: 43}
-  DEBUG machine:simulation {TICK: 44, PC: 44, ADDR: 15, OUT: 1, ACC: 1}, {OPCODE: jmp, ARG: 38, POS: 44}
-  DEBUG machine:simulation {TICK: 45, PC: 38, ADDR: 15, OUT: 1, ACC: 1}, {OPCODE: mem, ARG: 15, POS: 38}
-  DEBUG machine:simulation {TICK: 46, PC: 39, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: je, ARG: 59, POS: 39}
-  DEBUG machine:simulation {TICK: 47, PC: 40, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: print, ARG: , POS: 40}
+  DEBUG machine:simulation {TICK: 42, PC: 41, ADDR: 0, OUT: 72, ACC: 72}, {OPCODE: load, ARG: 15, POS: 41}
+  DEBUG machine:simulation {TICK: 43, PC: 42, ADDR: 15, OUT: 0, ACC: 0}, {OPCODE: addc, ARG: 1, POS: 42}
+  DEBUG machine:simulation {TICK: 44, PC: 43, ADDR: 15, OUT: 0, ACC: 1}, {OPCODE: store, ARG: 15, POS: 43}
+  DEBUG machine:simulation {TICK: 45, PC: 44, ADDR: 15, OUT: 1, ACC: 1}, {OPCODE: jmp, ARG: 38, POS: 44}
+  DEBUG machine:simulation {TICK: 46, PC: 38, ADDR: 15, OUT: 1, ACC: 1}, {OPCODE: mem, ARG: 15, POS: 38}
+  DEBUG machine:simulation {TICK: 48, PC: 39, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: je, ARG: 59, POS: 39}
+  DEBUG machine:simulation {TICK: 49, PC: 40, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: print, ARG: , POS: 40}
   DEBUG machine:output output: 'H' << 'e'
-  DEBUG machine:simulation {TICK: 48, PC: 41, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: load, ARG: 15, POS: 41}
-  DEBUG machine:simulation {TICK: 49, PC: 42, ADDR: 15, OUT: 1, ACC: 1}, {OPCODE: addc, ARG: 1, POS: 42}
+  DEBUG machine:simulation {TICK: 50, PC: 41, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: load, ARG: 15, POS: 41}
+  DEBUG machine:simulation {TICK: 51, PC: 42, ADDR: 15, OUT: 1, ACC: 1}, {OPCODE: addc, ARG: 1, POS: 42}
   DEBUG machine:simulation ...
   DEBUG machine:output output: 'He' << 'l'
   DEBUG machine:output output: 'Hel' << 'l'

@@ -237,7 +237,7 @@ output: |
   ============================================================
   foo
 
-  instr_counter:  63 ticks: 64
+  instr_counter:  63 ticks: 72
 
 log: |+
   DEBUG machine:simulation {TICK: 0, PC: 0, ADDR: 0, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 0, POS: 0}
@@ -245,57 +245,57 @@ log: |+
   DEBUG machine:simulation {TICK: 2, PC: 2, ADDR: 100, OUT: 0, ACC: 0}, {OPCODE: read, ARG: , POS: 2}
   DEBUG machine:input input: 'f'
   DEBUG machine:simulation {TICK: 3, PC: 3, ADDR: 100, OUT: 0, ACC: 102}, {OPCODE: store_mem, ARG: 100, POS: 3}
-  DEBUG machine:simulation {TICK: 4, PC: 4, ADDR: 0, OUT: 102, ACC: 102}, {OPCODE: je, ARG: 9, POS: 4}
-  DEBUG machine:simulation {TICK: 5, PC: 5, ADDR: 0, OUT: 102, ACC: 102}, {OPCODE: load, ARG: 100, POS: 5}
-  DEBUG machine:simulation {TICK: 6, PC: 6, ADDR: 100, OUT: 0, ACC: 0}, {OPCODE: addc, ARG: 1, POS: 6}
-  DEBUG machine:simulation {TICK: 7, PC: 7, ADDR: 100, OUT: 0, ACC: 1}, {OPCODE: store, ARG: 100, POS: 7}
-  DEBUG machine:simulation {TICK: 8, PC: 8, ADDR: 100, OUT: 1, ACC: 1}, {OPCODE: jmp, ARG: 2, POS: 8}
-  DEBUG machine:simulation {TICK: 9, PC: 2, ADDR: 100, OUT: 1, ACC: 1}, {OPCODE: read, ARG: , POS: 2}
+  DEBUG machine:simulation {TICK: 5, PC: 4, ADDR: 0, OUT: 102, ACC: 102}, {OPCODE: je, ARG: 9, POS: 4}
+  DEBUG machine:simulation {TICK: 6, PC: 5, ADDR: 0, OUT: 102, ACC: 102}, {OPCODE: load, ARG: 100, POS: 5}
+  DEBUG machine:simulation {TICK: 7, PC: 6, ADDR: 100, OUT: 0, ACC: 0}, {OPCODE: addc, ARG: 1, POS: 6}
+  DEBUG machine:simulation {TICK: 8, PC: 7, ADDR: 100, OUT: 0, ACC: 1}, {OPCODE: store, ARG: 100, POS: 7}
+  DEBUG machine:simulation {TICK: 9, PC: 8, ADDR: 100, OUT: 1, ACC: 1}, {OPCODE: jmp, ARG: 2, POS: 8}
+  DEBUG machine:simulation {TICK: 10, PC: 2, ADDR: 100, OUT: 1, ACC: 1}, {OPCODE: read, ARG: , POS: 2}
   DEBUG machine:input input: 'o'
-  DEBUG machine:simulation {TICK: 10, PC: 3, ADDR: 100, OUT: 1, ACC: 111}, {OPCODE: store_mem, ARG: 100, POS: 3}
-  DEBUG machine:simulation {TICK: 11, PC: 4, ADDR: 1, OUT: 111, ACC: 111}, {OPCODE: je, ARG: 9, POS: 4}
-  DEBUG machine:simulation {TICK: 12, PC: 5, ADDR: 1, OUT: 111, ACC: 111}, {OPCODE: load, ARG: 100, POS: 5}
-  DEBUG machine:simulation {TICK: 13, PC: 6, ADDR: 100, OUT: 1, ACC: 1}, {OPCODE: addc, ARG: 1, POS: 6}
-  DEBUG machine:simulation {TICK: 14, PC: 7, ADDR: 100, OUT: 1, ACC: 2}, {OPCODE: store, ARG: 100, POS: 7}
-  DEBUG machine:simulation {TICK: 15, PC: 8, ADDR: 100, OUT: 2, ACC: 2}, {OPCODE: jmp, ARG: 2, POS: 8}
-  DEBUG machine:simulation {TICK: 16, PC: 2, ADDR: 100, OUT: 2, ACC: 2}, {OPCODE: read, ARG: , POS: 2}
+  DEBUG machine:simulation {TICK: 11, PC: 3, ADDR: 100, OUT: 1, ACC: 111}, {OPCODE: store_mem, ARG: 100, POS: 3}
+  DEBUG machine:simulation {TICK: 13, PC: 4, ADDR: 1, OUT: 111, ACC: 111}, {OPCODE: je, ARG: 9, POS: 4}
+  DEBUG machine:simulation {TICK: 14, PC: 5, ADDR: 1, OUT: 111, ACC: 111}, {OPCODE: load, ARG: 100, POS: 5}
+  DEBUG machine:simulation {TICK: 15, PC: 6, ADDR: 100, OUT: 1, ACC: 1}, {OPCODE: addc, ARG: 1, POS: 6}
+  DEBUG machine:simulation {TICK: 16, PC: 7, ADDR: 100, OUT: 1, ACC: 2}, {OPCODE: store, ARG: 100, POS: 7}
+  DEBUG machine:simulation {TICK: 17, PC: 8, ADDR: 100, OUT: 2, ACC: 2}, {OPCODE: jmp, ARG: 2, POS: 8}
+  DEBUG machine:simulation {TICK: 18, PC: 2, ADDR: 100, OUT: 2, ACC: 2}, {OPCODE: read, ARG: , POS: 2}
   DEBUG machine:input input: 'o'
-  DEBUG machine:simulation {TICK: 17, PC: 3, ADDR: 100, OUT: 2, ACC: 111}, {OPCODE: store_mem, ARG: 100, POS: 3}
-  DEBUG machine:simulation {TICK: 18, PC: 4, ADDR: 2, OUT: 111, ACC: 111}, {OPCODE: je, ARG: 9, POS: 4}
-  DEBUG machine:simulation {TICK: 19, PC: 5, ADDR: 2, OUT: 111, ACC: 111}, {OPCODE: load, ARG: 100, POS: 5}
-  DEBUG machine:simulation {TICK: 20, PC: 6, ADDR: 100, OUT: 2, ACC: 2}, {OPCODE: addc, ARG: 1, POS: 6}
-  DEBUG machine:simulation {TICK: 21, PC: 7, ADDR: 100, OUT: 2, ACC: 3}, {OPCODE: store, ARG: 100, POS: 7}
-  DEBUG machine:simulation {TICK: 22, PC: 8, ADDR: 100, OUT: 3, ACC: 3}, {OPCODE: jmp, ARG: 2, POS: 8}
-  DEBUG machine:simulation {TICK: 23, PC: 2, ADDR: 100, OUT: 3, ACC: 3}, {OPCODE: read, ARG: , POS: 2}
+  DEBUG machine:simulation {TICK: 19, PC: 3, ADDR: 100, OUT: 2, ACC: 111}, {OPCODE: store_mem, ARG: 100, POS: 3}
+  DEBUG machine:simulation {TICK: 21, PC: 4, ADDR: 2, OUT: 111, ACC: 111}, {OPCODE: je, ARG: 9, POS: 4}
+  DEBUG machine:simulation {TICK: 22, PC: 5, ADDR: 2, OUT: 111, ACC: 111}, {OPCODE: load, ARG: 100, POS: 5}
+  DEBUG machine:simulation {TICK: 23, PC: 6, ADDR: 100, OUT: 2, ACC: 2}, {OPCODE: addc, ARG: 1, POS: 6}
+  DEBUG machine:simulation {TICK: 24, PC: 7, ADDR: 100, OUT: 2, ACC: 3}, {OPCODE: store, ARG: 100, POS: 7}
+  DEBUG machine:simulation {TICK: 25, PC: 8, ADDR: 100, OUT: 3, ACC: 3}, {OPCODE: jmp, ARG: 2, POS: 8}
+  DEBUG machine:simulation {TICK: 26, PC: 2, ADDR: 100, OUT: 3, ACC: 3}, {OPCODE: read, ARG: , POS: 2}
   DEBUG machine:input input: '\x00'
-  DEBUG machine:simulation {TICK: 24, PC: 3, ADDR: 100, OUT: 3, ACC: 0}, {OPCODE: store_mem, ARG: 100, POS: 3}
-  DEBUG machine:simulation {TICK: 25, PC: 4, ADDR: 3, OUT: 0, ACC: 0}, {OPCODE: je, ARG: 9, POS: 4}
-  DEBUG machine:simulation {TICK: 26, PC: 9, ADDR: 3, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 3, POS: 9}
-  DEBUG machine:simulation {TICK: 27, PC: 10, ADDR: 3, OUT: 0, ACC: 3}, {OPCODE: store, ARG: 100, POS: 10}
-  DEBUG machine:simulation {TICK: 28, PC: 11, ADDR: 100, OUT: 3, ACC: 3}, {OPCODE: loadc, ARG: 0, POS: 11}
-  DEBUG machine:simulation {TICK: 29, PC: 12, ADDR: 100, OUT: 3, ACC: 0}, {OPCODE: store, ARG: 101, POS: 12}
-  DEBUG machine:simulation {TICK: 30, PC: 13, ADDR: 101, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 101, POS: 13}
-  DEBUG machine:simulation {TICK: 31, PC: 14, ADDR: 101, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 102, POS: 14}
-  DEBUG machine:simulation {TICK: 32, PC: 15, ADDR: 102, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 100, POS: 15}
-  DEBUG machine:simulation {TICK: 33, PC: 16, ADDR: 100, OUT: 3, ACC: 3}, {OPCODE: je, ARG: 30, POS: 16}
-  DEBUG machine:simulation {TICK: 34, PC: 17, ADDR: 100, OUT: 3, ACC: 3}, {OPCODE: addc, ARG: -1, POS: 17}
-  DEBUG machine:simulation {TICK: 35, PC: 18, ADDR: 100, OUT: 3, ACC: 2}, {OPCODE: je, ARG: 40, POS: 18}
-  DEBUG machine:simulation {TICK: 36, PC: 19, ADDR: 100, OUT: 3, ACC: 2}, {OPCODE: addc, ARG: -1, POS: 19}
-  DEBUG machine:simulation {TICK: 37, PC: 20, ADDR: 100, OUT: 3, ACC: 1}, {OPCODE: je, ARG: 28, POS: 20}
-  DEBUG machine:simulation {TICK: 38, PC: 21, ADDR: 100, OUT: 3, ACC: 1}, {OPCODE: mem, ARG: 102, POS: 21}
-  DEBUG machine:simulation {TICK: 39, PC: 22, ADDR: 0, OUT: 102, ACC: 102}, {OPCODE: je, ARG: 42, POS: 22}
-  DEBUG machine:simulation {TICK: 40, PC: 23, ADDR: 0, OUT: 102, ACC: 102}, {OPCODE: print, ARG: , POS: 23}
+  DEBUG machine:simulation {TICK: 27, PC: 3, ADDR: 100, OUT: 3, ACC: 0}, {OPCODE: store_mem, ARG: 100, POS: 3}
+  DEBUG machine:simulation {TICK: 29, PC: 4, ADDR: 3, OUT: 0, ACC: 0}, {OPCODE: je, ARG: 9, POS: 4}
+  DEBUG machine:simulation {TICK: 30, PC: 9, ADDR: 3, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 3, POS: 9}
+  DEBUG machine:simulation {TICK: 31, PC: 10, ADDR: 3, OUT: 0, ACC: 3}, {OPCODE: store, ARG: 100, POS: 10}
+  DEBUG machine:simulation {TICK: 32, PC: 11, ADDR: 100, OUT: 3, ACC: 3}, {OPCODE: loadc, ARG: 0, POS: 11}
+  DEBUG machine:simulation {TICK: 33, PC: 12, ADDR: 100, OUT: 3, ACC: 0}, {OPCODE: store, ARG: 101, POS: 12}
+  DEBUG machine:simulation {TICK: 34, PC: 13, ADDR: 101, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 101, POS: 13}
+  DEBUG machine:simulation {TICK: 35, PC: 14, ADDR: 101, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 102, POS: 14}
+  DEBUG machine:simulation {TICK: 36, PC: 15, ADDR: 102, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 100, POS: 15}
+  DEBUG machine:simulation {TICK: 37, PC: 16, ADDR: 100, OUT: 3, ACC: 3}, {OPCODE: je, ARG: 30, POS: 16}
+  DEBUG machine:simulation {TICK: 38, PC: 17, ADDR: 100, OUT: 3, ACC: 3}, {OPCODE: addc, ARG: -1, POS: 17}
+  DEBUG machine:simulation {TICK: 39, PC: 18, ADDR: 100, OUT: 3, ACC: 2}, {OPCODE: je, ARG: 40, POS: 18}
+  DEBUG machine:simulation {TICK: 40, PC: 19, ADDR: 100, OUT: 3, ACC: 2}, {OPCODE: addc, ARG: -1, POS: 19}
+  DEBUG machine:simulation {TICK: 41, PC: 20, ADDR: 100, OUT: 3, ACC: 1}, {OPCODE: je, ARG: 28, POS: 20}
+  DEBUG machine:simulation {TICK: 42, PC: 21, ADDR: 100, OUT: 3, ACC: 1}, {OPCODE: mem, ARG: 102, POS: 21}
+  DEBUG machine:simulation {TICK: 44, PC: 22, ADDR: 0, OUT: 102, ACC: 102}, {OPCODE: je, ARG: 42, POS: 22}
+  DEBUG machine:simulation {TICK: 45, PC: 23, ADDR: 0, OUT: 102, ACC: 102}, {OPCODE: print, ARG: , POS: 23}
   DEBUG machine:output output: '' << 'f'
-  DEBUG machine:simulation {TICK: 41, PC: 24, ADDR: 0, OUT: 102, ACC: 102}, {OPCODE: load, ARG: 102, POS: 24}
-  DEBUG machine:simulation {TICK: 42, PC: 25, ADDR: 102, OUT: 0, ACC: 0}, {OPCODE: addc, ARG: 1, POS: 25}
-  DEBUG machine:simulation {TICK: 43, PC: 26, ADDR: 102, OUT: 0, ACC: 1}, {OPCODE: store, ARG: 102, POS: 26}
-  DEBUG machine:simulation {TICK: 44, PC: 27, ADDR: 102, OUT: 1, ACC: 1}, {OPCODE: jmp, ARG: 21, POS: 27}
-  DEBUG machine:simulation {TICK: 45, PC: 21, ADDR: 102, OUT: 1, ACC: 1}, {OPCODE: mem, ARG: 102, POS: 21}
-  DEBUG machine:simulation {TICK: 46, PC: 22, ADDR: 1, OUT: 111, ACC: 111}, {OPCODE: je, ARG: 42, POS: 22}
-  DEBUG machine:simulation {TICK: 47, PC: 23, ADDR: 1, OUT: 111, ACC: 111}, {OPCODE: print, ARG: , POS: 23}
+  DEBUG machine:simulation {TICK: 46, PC: 24, ADDR: 0, OUT: 102, ACC: 102}, {OPCODE: load, ARG: 102, POS: 24}
+  DEBUG machine:simulation {TICK: 47, PC: 25, ADDR: 102, OUT: 0, ACC: 0}, {OPCODE: addc, ARG: 1, POS: 25}
+  DEBUG machine:simulation {TICK: 48, PC: 26, ADDR: 102, OUT: 0, ACC: 1}, {OPCODE: store, ARG: 102, POS: 26}
+  DEBUG machine:simulation {TICK: 49, PC: 27, ADDR: 102, OUT: 1, ACC: 1}, {OPCODE: jmp, ARG: 21, POS: 27}
+  DEBUG machine:simulation {TICK: 50, PC: 21, ADDR: 102, OUT: 1, ACC: 1}, {OPCODE: mem, ARG: 102, POS: 21}
+  DEBUG machine:simulation {TICK: 52, PC: 22, ADDR: 1, OUT: 111, ACC: 111}, {OPCODE: je, ARG: 42, POS: 22}
+  DEBUG machine:simulation {TICK: 53, PC: 23, ADDR: 1, OUT: 111, ACC: 111}, {OPCODE: print, ARG: , POS: 23}
   DEBUG machine:output output: 'f' << 'o'
-  DEBUG machine:simulation {TICK: 48, PC: 24, ADDR: 1, OUT: 111, ACC: 111}, {OPCODE: load, ARG: 102, POS: 24}
-  DEBUG machine:simulation {TICK: 49, PC: 25, ADDR: 102, OUT: 1, ACC: 1}, {OPCODE: addc, ARG: 1, POS: 25}
+  DEBUG machine:simulation {TICK: 54, PC: 24, ADDR: 1, OUT: 111, ACC: 111}, {OPCODE: load, ARG: 102, POS: 24}
+  DEBUG machine:simulation {TICK: 55, PC: 25, ADDR: 102, OUT: 1, ACC: 1}, {OPCODE: addc, ARG: 1, POS: 25}
   DEBUG machine:simulation ...
   DEBUG machine:output output: 'fo' << 'o'
   DEBUG machine:output output: 'foo' << '\n'

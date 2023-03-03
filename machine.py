@@ -17,9 +17,17 @@ class ArithmeticLogicUnit:
 
     def add(self):
         self.result = self.left + self.right
+        if self.result > 2 ** 32 - 1:
+            self.result -= 2 ** 33
+        elif self.result < -2 ** 32:
+            self.result += 2 ** 33
 
     def sub(self):
         self.result = self.left - self.right
+        if self.result > 2 ** 32 - 1:
+            self.result -= 2 ** 33
+        elif self.result < -2 ** 32:
+            self.result += 2 ** 33
 
     
 class DataPath:
@@ -40,6 +48,9 @@ class DataPath:
         assert 0 <= self.data_address < self.data_memory_size, \
             "out of memory: {}".format(self.data_address)
 
+    def latch_data_addr_from_alu(self):
+        self.data_address = self.alu.result
+
     def latch_dr(self, sel):
         self.dr = sel
 
@@ -53,10 +64,7 @@ class DataPath:
     def latch_acc_from_alu(self):
         self.acc = self.alu.result
 
-    def latch_data_address_from_alu(self):
-        self.data_address = self.alu.result
-
-    def latch_acc_from_memory(self):  # load
+    def latch_acc_from_memory(self):
         self.acc = self.data_memory[self.data_address]
 
     def input(self):
@@ -81,9 +89,6 @@ class DataPath:
 
     def wr(self):
         self.data_memory[self.data_address] = self.acc
-
-    def zero(self):
-        return self.acc == 0
 
 
 class ControlUnit:
@@ -118,7 +123,7 @@ class ControlUnit:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
             self.data_path.alu.get_right()
-            self.data_path.latch_data_address_from_alu()
+            self.data_path.latch_data_addr_from_alu()
             self.data_path.latch_acc_from_memory()
         elif opcode is Opcode.LOAD_CONST:
             self.data_path.latch_dr(arg)
@@ -129,35 +134,37 @@ class ControlUnit:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
             self.data_path.alu.get_right()
-            self.data_path.latch_data_address_from_alu()
+            self.data_path.latch_data_addr_from_alu()
             self.data_path.latch_acc_from_memory()
 
+            self.tick()
             self.data_path.latch_alu_registers()
             self.data_path.alu.get_left()
-            self.data_path.latch_data_address_from_alu()
+            self.data_path.latch_data_addr_from_alu()
             self.data_path.latch_acc_from_memory()
         elif opcode is Opcode.STORE:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
             self.data_path.alu.get_right()
-            self.data_path.latch_data_address_from_alu()
+            self.data_path.latch_data_addr_from_alu()
             self.data_path.wr()
         elif opcode is Opcode.STORE_MEM:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
             self.data_path.alu.get_right()
-            self.data_path.latch_data_address_from_alu()
+            self.data_path.latch_data_addr_from_alu()
             self.data_path.latch_dr_from_memory()
 
+            self.tick()
             self.data_path.latch_alu_registers()
             self.data_path.alu.get_right()
-            self.data_path.latch_data_address_from_alu()
+            self.data_path.latch_data_addr_from_alu()
             self.data_path.wr()
         elif opcode is Opcode.ADD:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
             self.data_path.alu.get_right()
-            self.data_path.latch_data_address_from_alu()
+            self.data_path.latch_data_addr_from_alu()
             self.data_path.latch_dr_from_memory()
             self.data_path.latch_alu_registers()
             self.data_path.alu.add()
@@ -171,7 +178,7 @@ class ControlUnit:
             self.data_path.latch_dr(arg)
             self.data_path.latch_alu_registers()
             self.data_path.alu.get_right()
-            self.data_path.latch_data_address_from_alu()
+            self.data_path.latch_data_addr_from_alu()
             self.data_path.latch_dr_from_memory()
             self.data_path.latch_alu_registers()
             self.data_path.alu.sub()
