@@ -5,5 +5,4 @@ lab3-example:
     entrypoint: [""]
   script:
     - pip install pytest-golden
-    - python3-coverage run -m pytest --verbose
     - python3 pytest
