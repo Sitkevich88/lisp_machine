@@ -11,5 +11,5 @@ test-csa-lab3:
         name: python-tools
         entrypoint: [""]
     script:
-        - python3 -m coverage run -m pytest
+        - python3 -m coverage run --source ./* -m pytest
         - python3 -m coverage report
