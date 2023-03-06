@@ -728,7 +728,7 @@ code: |-
           "term": 141
       },
       {
-          "opcode": "mem",
+          "opcode": "load_indir",
           "arg": 6,
           "term": 142
       },
@@ -901,7 +901,7 @@ log: |+
   DEBUG machine:simulation {TICK: 48, PC: 51, ADDR: 5, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 3, POS: 51}
   DEBUG machine:simulation {TICK: 49, PC: 52, ADDR: 3, OUT: 0, ACC: 0}, {OPCODE: jmp, ARG: 94, POS: 52}
   DEBUG machine:simulation ...
-  DEBUG machine:output_int output: '' << '233168'
+  DEBUG machine:output output: '' << '233168'
   DEBUG machine:output output: '233168' << '\n'
   INFO machine:simulation output_buffer: 233168
 
@@ -910,4 +910,4 @@ output: |
   ============================================================
   233168
 
-  instr_counter:  1004088 ticks: 1004089
+  instr_counter:  1004088 ticks: 1004088

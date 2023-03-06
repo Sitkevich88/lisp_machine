@@ -14,9 +14,9 @@ class Opcode(str, Enum):
     """Opcode для ISA."""
     LOAD = 'load'
     LOAD_CONST = 'loadc'
-    LOAD_MEM = 'mem'
+    LOAD_INDIRECT = 'load_indir'
     STORE = 'store'
-    STORE_MEM = 'store_mem'
+    STORE_INDIRECT = 'store_indir'
     ADD = 'add'
     ADD_CONST = 'addc'
     SUB = 'sub'

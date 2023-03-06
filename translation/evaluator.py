@@ -350,7 +350,7 @@ def lisp_print(expression: SymbolicExpression):
 
     # print string
     string_term = machine_code[-1]["term"] + 1
-    machine_code.append(get_instruction(Opcode.LOAD_MEM, lisp_var_addr))
+    machine_code.append(get_instruction(Opcode.LOAD_INDIRECT, lisp_var_addr))
     machine_code.append(get_instruction(Opcode.JE, 'end'))  # jump на end
     machine_code.append(get_instruction(Opcode.PRINT, ""))
     machine_code.append(get_instruction(Opcode.LOAD, lisp_var_addr))
@@ -415,7 +415,7 @@ def lisp_read():
     machine_code.append(get_instruction(Opcode.READ, ""))  # прочитали символ в акк
     read_command_address = machine_code[-1]["term"]
 
-    machine_code.append(get_instruction(Opcode.STORE_MEM, addr))  # сохранили символ
+    machine_code.append(get_instruction(Opcode.STORE_INDIRECT, addr))  # сохранили символ
     machine_code.append(get_instruction(Opcode.JE, read_command_address + 7))  # перескок на сохранение переменной
     machine_code.append(get_instruction(Opcode.LOAD, addr))
     machine_code.append(get_instruction(Opcode.ADD_CONST, 1))  # инкремент адреса ячейки для следующего символа
