@@ -43,11 +43,19 @@ class DataPath:
             logging.debug('input: %s', repr(symbol))
         elif sel in [Opcode.LOAD, Opcode.LOAD_CONST, Opcode.LOAD_INDIRECT]:
             self.acc = self.dr
-        elif sel in [Opcode.ADD, Opcode.ADD_CONST]:
-            self.acc += self.dr
-        elif sel is Opcode.SUB:
-            self.acc -= self.dr
-        self.flags = {"zero": 1 if self.acc == 0 else 0, "sign": 1 if self.acc < 0 else 0}
+        elif sel in [Opcode.ADD, Opcode.ADD_CONST, Opcode.SUB]:
+            if sel is Opcode.SUB:
+                self.acc -= self.dr
+            else:
+                self.acc += self.dr
+
+            if self.acc > 2**31 - 1:
+                self.acc -= 2*32
+            elif self.acc < -2**31:
+                self.acc += 2**32
+
+        self.flags = {"zero": 1 if self.acc == 0 else 0,
+                      "sign": 1 if self.acc < 0 else 0}
 
     def latch_da(self, sel_sr: bool):
         if sel_sr:
@@ -95,7 +103,7 @@ class ControlUnit:
         opcode = instr["opcode"]
         arg = instr["arg"]
 
-        if arg is not "":
+        if arg != "":
             self.data_path.latch_sr(arg)
 
         if opcode is Opcode.LOAD:
