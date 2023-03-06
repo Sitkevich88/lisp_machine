@@ -10,6 +10,8 @@ import io
 import logging
 import os
 import tempfile
+import unittest
+
 import pytest
 import machine
 import translator
@@ -58,3 +60,56 @@ def test_whole_by_golden(golden, caplog):
         assert code == golden.out["code"]
         assert stdout.getvalue() == golden.out["output"]
         assert golden.out["log"] == caplog.text
+
+
+class TestWhole(unittest.TestCase):
+    def test_requirements(self):
+        with tempfile.TemporaryDirectory() as tmpdirname:
+            source = "examples/requirements.lsp"
+            target = os.path.join(tmpdirname, "machine_code.json")
+            input_stream = "examples/io/input.txt"
+
+            # Собираем весь стандартный вывод в переменную stdout.
+            with contextlib.redirect_stdout(io.StringIO()) as stdout:
+                translator.main([source, target])
+                machine.main([target, input_stream])
+
+            # Проверяем, что было напечатано то, что мы ожидали.
+            self.assertEqual(stdout.getvalue(),
+                             'source LoC: 24 , code instr: 176\n'
+                             'F\n3\n13\n\n'
+                             'instr_counter:  109 ticks: 113\n')
+
+    def test_loop(self):
+        with tempfile.TemporaryDirectory() as tmpdirname:
+            source = "examples/loop.lsp"
+            target = os.path.join(tmpdirname, "machine_code.json")
+            input_stream = "examples/io/input.txt"
+
+            # Собираем весь стандартный вывод в переменную stdout.
+            with contextlib.redirect_stdout(io.StringIO()) as stdout:
+                translator.main([source, target])
+                machine.main([target, input_stream])
+
+            # Проверяем, что было напечатано то, что мы ожидали.
+            self.assertEqual(stdout.getvalue(),
+                             'source LoC: 35 , code instr: 159\n'
+                             '1\n3\n5\n7\n9\n11\n13\n15\n17\n19\nКонец цикла\n\n'
+                             'instr_counter:  1754 ticks: 1778\n')
+
+    def test_math(self):
+        with tempfile.TemporaryDirectory() as tmpdirname:
+            source = "examples/math.lsp"
+            target = os.path.join(tmpdirname, "machine_code.json")
+            input_stream = "examples/io/input.txt"
+
+            # Собираем весь стандартный вывод в переменную stdout.
+            with contextlib.redirect_stdout(io.StringIO()) as stdout:
+                translator.main([source, target])
+                machine.main([target, input_stream])
+
+            # Проверяем, что было напечатано то, что мы ожидали.
+            self.assertEqual(stdout.getvalue(),
+                             'source LoC: 9 , code instr: 47\n'
+                             '120\n\n'
+                             'instr_counter:  25 ticks: 25\n')

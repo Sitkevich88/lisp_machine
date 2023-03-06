@@ -1,0 +1,237 @@
+[
+    {
+        "opcode": "loadc",
+        "arg": 1,
+        "term": 0
+    },
+    {
+        "opcode": "store",
+        "arg": 2,
+        "term": 1
+    },
+    {
+        "opcode": "loadc",
+        "arg": 70,
+        "term": 2
+    },
+    {
+        "opcode": "store",
+        "arg": 3,
+        "term": 3
+    },
+    {
+        "opcode": "load",
+        "arg": 3,
+        "term": 4
+    },
+    {
+        "opcode": "addc",
+        "arg": 50,
+        "term": 5
+    },
+    {
+        "opcode": "store",
+        "arg": 3,
+        "term": 6
+    },
+    {
+        "opcode": "load",
+        "arg": 2,
+        "term": 7
+    },
+    {
+        "opcode": "store",
+        "arg": 0,
+        "term": 8
+    },
+    {
+        "opcode": "load",
+        "arg": 3,
+        "term": 9
+    },
+    {
+        "opcode": "store",
+        "arg": 1,
+        "term": 10
+    },
+    {
+        "opcode": "load",
+        "arg": 0,
+        "term": 11
+    },
+    {
+        "opcode": "store",
+        "arg": 2,
+        "term": 12
+    },
+    {
+        "opcode": "load",
+        "arg": 1,
+        "term": 13
+    },
+    {
+        "opcode": "store",
+        "arg": 3,
+        "term": 14
+    },
+    {
+        "opcode": "load",
+        "arg": 3,
+        "term": 15
+    },
+    {
+        "opcode": "store",
+        "arg": 4,
+        "term": 16
+    },
+    {
+        "opcode": "load",
+        "arg": 2,
+        "term": 17
+    },
+    {
+        "opcode": "je",
+        "arg": 32,
+        "term": 18
+    },
+    {
+        "opcode": "addc",
+        "arg": -1,
+        "term": 19
+    },
+    {
+        "opcode": "je",
+        "arg": 42,
+        "term": 20
+    },
+    {
+        "opcode": "addc",
+        "arg": -1,
+        "term": 21
+    },
+    {
+        "opcode": "je",
+        "arg": 30,
+        "term": 22
+    },
+    {
+        "opcode": "load_indir",
+        "arg": 4,
+        "term": 23
+    },
+    {
+        "opcode": "je",
+        "arg": 44,
+        "term": 24
+    },
+    {
+        "opcode": "print",
+        "arg": "",
+        "term": 25
+    },
+    {
+        "opcode": "load",
+        "arg": 4,
+        "term": 26
+    },
+    {
+        "opcode": "addc",
+        "arg": 1,
+        "term": 27
+    },
+    {
+        "opcode": "store",
+        "arg": 4,
+        "term": 28
+    },
+    {
+        "opcode": "jmp",
+        "arg": 23,
+        "term": 29
+    },
+    {
+        "opcode": "load",
+        "arg": 4,
+        "term": 30
+    },
+    {
+        "opcode": "jne",
+        "arg": 39,
+        "term": 31
+    },
+    {
+        "opcode": "loadc",
+        "arg": 78,
+        "term": 32
+    },
+    {
+        "opcode": "print",
+        "arg": "",
+        "term": 33
+    },
+    {
+        "opcode": "loadc",
+        "arg": 73,
+        "term": 34
+    },
+    {
+        "opcode": "print",
+        "arg": "",
+        "term": 35
+    },
+    {
+        "opcode": "loadc",
+        "arg": 76,
+        "term": 36
+    },
+    {
+        "opcode": "print",
+        "arg": "",
+        "term": 37
+    },
+    {
+        "opcode": "jmp",
+        "arg": 44,
+        "term": 38
+    },
+    {
+        "opcode": "loadc",
+        "arg": 116,
+        "term": 39
+    },
+    {
+        "opcode": "print",
+        "arg": "",
+        "term": 40
+    },
+    {
+        "opcode": "jmp",
+        "arg": 44,
+        "term": 41
+    },
+    {
+        "opcode": "load",
+        "arg": 4,
+        "term": 42
+    },
+    {
+        "opcode": "print_int",
+        "arg": "",
+        "term": 43
+    },
+    {
+        "opcode": "loadc",
+        "arg": 10,
+        "term": 44
+    },
+    {
+        "opcode": "print",
+        "arg": "",
+        "term": 45
+    },
+    {
+        "opcode": "halt",
+        "arg": "",
+        "term": 46
+    }
+]

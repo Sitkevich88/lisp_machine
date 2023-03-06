@@ -1,12 +1,12 @@
 source: |-
-  (print "Hello world!")
+  (print "hello world")
 input: |
 
 code: |-
   [
       {
           "opcode": "loadc",
-          "arg": 72,
+          "arg": 104,
           "term": 0
       },
       {
@@ -116,7 +116,7 @@ code: |-
       },
       {
           "opcode": "loadc",
-          "arg": 33,
+          "arg": 0,
           "term": 22
       },
       {
@@ -126,7 +126,7 @@ code: |-
       },
       {
           "opcode": "loadc",
-          "arg": 0,
+          "arg": 3,
           "term": 24
       },
       {
@@ -136,7 +136,7 @@ code: |-
       },
       {
           "opcode": "loadc",
-          "arg": 3,
+          "arg": 0,
           "term": 26
       },
       {
@@ -145,8 +145,8 @@ code: |-
           "term": 27
       },
       {
-          "opcode": "loadc",
-          "arg": 0,
+          "opcode": "load",
+          "arg": 13,
           "term": 28
       },
       {
@@ -156,22 +156,22 @@ code: |-
       },
       {
           "opcode": "load",
-          "arg": 14,
+          "arg": 12,
           "term": 30
       },
       {
-          "opcode": "store",
-          "arg": 15,
+          "opcode": "je",
+          "arg": 45,
           "term": 31
       },
       {
-          "opcode": "load",
-          "arg": 13,
+          "opcode": "addc",
+          "arg": -1,
           "term": 32
       },
       {
           "opcode": "je",
-          "arg": 47,
+          "arg": 55,
           "term": 33
       },
       {
@@ -181,67 +181,67 @@ code: |-
       },
       {
           "opcode": "je",
-          "arg": 57,
+          "arg": 43,
           "term": 35
       },
       {
-          "opcode": "addc",
-          "arg": -1,
+          "opcode": "load_indir",
+          "arg": 14,
           "term": 36
       },
       {
           "opcode": "je",
-          "arg": 45,
+          "arg": 57,
           "term": 37
-      },
-      {
-          "opcode": "load_indir",
-          "arg": 15,
-          "term": 38
-      },
-      {
-          "opcode": "je",
-          "arg": 59,
-          "term": 39
       },
       {
           "opcode": "print",
           "arg": "",
-          "term": 40
+          "term": 38
       },
       {
           "opcode": "load",
-          "arg": 15,
-          "term": 41
+          "arg": 14,
+          "term": 39
       },
       {
           "opcode": "addc",
           "arg": 1,
-          "term": 42
+          "term": 40
       },
       {
           "opcode": "store",
-          "arg": 15,
-          "term": 43
+          "arg": 14,
+          "term": 41
       },
       {
           "opcode": "jmp",
-          "arg": 38,
-          "term": 44
+          "arg": 36,
+          "term": 42
       },
       {
           "opcode": "load",
-          "arg": 15,
-          "term": 45
+          "arg": 14,
+          "term": 43
       },
       {
           "opcode": "jne",
-          "arg": 54,
-          "term": 46
+          "arg": 52,
+          "term": 44
       },
       {
           "opcode": "loadc",
           "arg": 78,
+          "term": 45
+      },
+      {
+          "opcode": "print",
+          "arg": "",
+          "term": 46
+      },
+      {
+          "opcode": "loadc",
+          "arg": 73,
           "term": 47
       },
       {
@@ -251,7 +251,7 @@ code: |-
       },
       {
           "opcode": "loadc",
-          "arg": 73,
+          "arg": 76,
           "term": 49
       },
       {
@@ -260,74 +260,64 @@ code: |-
           "term": 50
       },
       {
-          "opcode": "loadc",
-          "arg": 76,
-          "term": 51
-      },
-      {
-          "opcode": "print",
-          "arg": "",
-          "term": 52
-      },
-      {
           "opcode": "jmp",
-          "arg": 59,
-          "term": 53
+          "arg": 57,
+          "term": 51
       },
       {
           "opcode": "loadc",
           "arg": 116,
-          "term": 54
+          "term": 52
       },
       {
           "opcode": "print",
           "arg": "",
-          "term": 55
+          "term": 53
       },
       {
           "opcode": "jmp",
-          "arg": 59,
-          "term": 56
+          "arg": 57,
+          "term": 54
       },
       {
           "opcode": "load",
-          "arg": 15,
-          "term": 57
+          "arg": 14,
+          "term": 55
       },
       {
           "opcode": "print_int",
           "arg": "",
-          "term": 58
+          "term": 56
       },
       {
           "opcode": "loadc",
           "arg": 10,
-          "term": 59
+          "term": 57
       },
       {
           "opcode": "print",
           "arg": "",
-          "term": 60
+          "term": 58
       },
       {
           "opcode": "halt",
           "arg": "",
-          "term": 61
+          "term": 59
       }
   ]
 
 output: |
-  source LoC: 3 , code instr: 62
+  source LoC: 3 , code instr: 60
   ============================================================
-  Hello world!
+  hello world
 
-  instr_counter:  126 ticks: 152
+  instr_counter:  117 ticks: 141
 
 log: |+
-  DEBUG machine:simulation {TICK: 0, PC: 0, ADDR: 0, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 72, POS: 0}
-  DEBUG machine:simulation {TICK: 1, PC: 1, ADDR: 0, OUT: 0, ACC: 72}, {OPCODE: store, ARG: 0, POS: 1}
-  DEBUG machine:simulation {TICK: 2, PC: 2, ADDR: 0, OUT: 72, ACC: 72}, {OPCODE: loadc, ARG: 101, POS: 2}
-  DEBUG machine:simulation {TICK: 3, PC: 3, ADDR: 0, OUT: 72, ACC: 101}, {OPCODE: store, ARG: 1, POS: 3}
+  DEBUG machine:simulation {TICK: 0, PC: 0, ADDR: 0, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 104, POS: 0}
+  DEBUG machine:simulation {TICK: 1, PC: 1, ADDR: 0, OUT: 0, ACC: 104}, {OPCODE: store, ARG: 0, POS: 1}
+  DEBUG machine:simulation {TICK: 2, PC: 2, ADDR: 0, OUT: 104, ACC: 104}, {OPCODE: loadc, ARG: 101, POS: 2}
+  DEBUG machine:simulation {TICK: 3, PC: 3, ADDR: 0, OUT: 104, ACC: 101}, {OPCODE: store, ARG: 1, POS: 3}
   DEBUG machine:simulation {TICK: 4, PC: 4, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: loadc, ARG: 108, POS: 4}
   DEBUG machine:simulation {TICK: 5, PC: 5, ADDR: 1, OUT: 101, ACC: 108}, {OPCODE: store, ARG: 2, POS: 5}
   DEBUG machine:simulation {TICK: 6, PC: 6, ADDR: 2, OUT: 108, ACC: 108}, {OPCODE: loadc, ARG: 108, POS: 6}
@@ -346,48 +336,47 @@ log: |+
   DEBUG machine:simulation {TICK: 19, PC: 19, ADDR: 8, OUT: 114, ACC: 108}, {OPCODE: store, ARG: 9, POS: 19}
   DEBUG machine:simulation {TICK: 20, PC: 20, ADDR: 9, OUT: 108, ACC: 108}, {OPCODE: loadc, ARG: 100, POS: 20}
   DEBUG machine:simulation {TICK: 21, PC: 21, ADDR: 9, OUT: 108, ACC: 100}, {OPCODE: store, ARG: 10, POS: 21}
-  DEBUG machine:simulation {TICK: 22, PC: 22, ADDR: 10, OUT: 100, ACC: 100}, {OPCODE: loadc, ARG: 33, POS: 22}
-  DEBUG machine:simulation {TICK: 23, PC: 23, ADDR: 10, OUT: 100, ACC: 33}, {OPCODE: store, ARG: 11, POS: 23}
-  DEBUG machine:simulation {TICK: 24, PC: 24, ADDR: 11, OUT: 33, ACC: 33}, {OPCODE: loadc, ARG: 0, POS: 24}
-  DEBUG machine:simulation {TICK: 25, PC: 25, ADDR: 11, OUT: 33, ACC: 0}, {OPCODE: store, ARG: 12, POS: 25}
-  DEBUG machine:simulation {TICK: 26, PC: 26, ADDR: 12, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 3, POS: 26}
-  DEBUG machine:simulation {TICK: 27, PC: 27, ADDR: 12, OUT: 0, ACC: 3}, {OPCODE: store, ARG: 13, POS: 27}
-  DEBUG machine:simulation {TICK: 28, PC: 28, ADDR: 13, OUT: 3, ACC: 3}, {OPCODE: loadc, ARG: 0, POS: 28}
-  DEBUG machine:simulation {TICK: 29, PC: 29, ADDR: 13, OUT: 3, ACC: 0}, {OPCODE: store, ARG: 14, POS: 29}
-  DEBUG machine:simulation {TICK: 30, PC: 30, ADDR: 14, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 14, POS: 30}
-  DEBUG machine:simulation {TICK: 31, PC: 31, ADDR: 14, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 15, POS: 31}
-  DEBUG machine:simulation {TICK: 32, PC: 32, ADDR: 15, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 13, POS: 32}
-  DEBUG machine:simulation {TICK: 33, PC: 33, ADDR: 13, OUT: 3, ACC: 3}, {OPCODE: je, ARG: 47, POS: 33}
-  DEBUG machine:simulation {TICK: 34, PC: 34, ADDR: 13, OUT: 3, ACC: 3}, {OPCODE: addc, ARG: -1, POS: 34}
-  DEBUG machine:simulation {TICK: 35, PC: 35, ADDR: 13, OUT: 3, ACC: 2}, {OPCODE: je, ARG: 57, POS: 35}
-  DEBUG machine:simulation {TICK: 36, PC: 36, ADDR: 13, OUT: 3, ACC: 2}, {OPCODE: addc, ARG: -1, POS: 36}
-  DEBUG machine:simulation {TICK: 37, PC: 37, ADDR: 13, OUT: 3, ACC: 1}, {OPCODE: je, ARG: 45, POS: 37}
-  DEBUG machine:simulation {TICK: 38, PC: 38, ADDR: 13, OUT: 3, ACC: 1}, {OPCODE: load_indir, ARG: 15, POS: 38}
-  DEBUG machine:simulation {TICK: 41, PC: 39, ADDR: 0, OUT: 72, ACC: 72}, {OPCODE: je, ARG: 59, POS: 39}
-  DEBUG machine:simulation {TICK: 42, PC: 40, ADDR: 0, OUT: 72, ACC: 72}, {OPCODE: print, ARG: , POS: 40}
-  DEBUG machine:output output: '' << 'H'
-  DEBUG machine:simulation {TICK: 43, PC: 41, ADDR: 0, OUT: 72, ACC: 72}, {OPCODE: load, ARG: 15, POS: 41}
-  DEBUG machine:simulation {TICK: 44, PC: 42, ADDR: 15, OUT: 0, ACC: 0}, {OPCODE: addc, ARG: 1, POS: 42}
-  DEBUG machine:simulation {TICK: 45, PC: 43, ADDR: 15, OUT: 0, ACC: 1}, {OPCODE: store, ARG: 15, POS: 43}
-  DEBUG machine:simulation {TICK: 46, PC: 44, ADDR: 15, OUT: 1, ACC: 1}, {OPCODE: jmp, ARG: 38, POS: 44}
-  DEBUG machine:simulation {TICK: 47, PC: 38, ADDR: 15, OUT: 1, ACC: 1}, {OPCODE: load_indir, ARG: 15, POS: 38}
-  DEBUG machine:simulation {TICK: 50, PC: 39, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: je, ARG: 59, POS: 39}
-  DEBUG machine:simulation {TICK: 51, PC: 40, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: print, ARG: , POS: 40}
-  DEBUG machine:output output: 'H' << 'e'
-  DEBUG machine:simulation {TICK: 52, PC: 41, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: load, ARG: 15, POS: 41}
-  DEBUG machine:simulation {TICK: 53, PC: 42, ADDR: 15, OUT: 1, ACC: 1}, {OPCODE: addc, ARG: 1, POS: 42}
+  DEBUG machine:simulation {TICK: 22, PC: 22, ADDR: 10, OUT: 100, ACC: 100}, {OPCODE: loadc, ARG: 0, POS: 22}
+  DEBUG machine:simulation {TICK: 23, PC: 23, ADDR: 10, OUT: 100, ACC: 0}, {OPCODE: store, ARG: 11, POS: 23}
+  DEBUG machine:simulation {TICK: 24, PC: 24, ADDR: 11, OUT: 0, ACC: 0}, {OPCODE: loadc, ARG: 3, POS: 24}
+  DEBUG machine:simulation {TICK: 25, PC: 25, ADDR: 11, OUT: 0, ACC: 3}, {OPCODE: store, ARG: 12, POS: 25}
+  DEBUG machine:simulation {TICK: 26, PC: 26, ADDR: 12, OUT: 3, ACC: 3}, {OPCODE: loadc, ARG: 0, POS: 26}
+  DEBUG machine:simulation {TICK: 27, PC: 27, ADDR: 12, OUT: 3, ACC: 0}, {OPCODE: store, ARG: 13, POS: 27}
+  DEBUG machine:simulation {TICK: 28, PC: 28, ADDR: 13, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 13, POS: 28}
+  DEBUG machine:simulation {TICK: 29, PC: 29, ADDR: 13, OUT: 0, ACC: 0}, {OPCODE: store, ARG: 14, POS: 29}
+  DEBUG machine:simulation {TICK: 30, PC: 30, ADDR: 14, OUT: 0, ACC: 0}, {OPCODE: load, ARG: 12, POS: 30}
+  DEBUG machine:simulation {TICK: 31, PC: 31, ADDR: 12, OUT: 3, ACC: 3}, {OPCODE: je, ARG: 45, POS: 31}
+  DEBUG machine:simulation {TICK: 32, PC: 32, ADDR: 12, OUT: 3, ACC: 3}, {OPCODE: addc, ARG: -1, POS: 32}
+  DEBUG machine:simulation {TICK: 33, PC: 33, ADDR: 12, OUT: 3, ACC: 2}, {OPCODE: je, ARG: 55, POS: 33}
+  DEBUG machine:simulation {TICK: 34, PC: 34, ADDR: 12, OUT: 3, ACC: 2}, {OPCODE: addc, ARG: -1, POS: 34}
+  DEBUG machine:simulation {TICK: 35, PC: 35, ADDR: 12, OUT: 3, ACC: 1}, {OPCODE: je, ARG: 43, POS: 35}
+  DEBUG machine:simulation {TICK: 36, PC: 36, ADDR: 12, OUT: 3, ACC: 1}, {OPCODE: load_indir, ARG: 14, POS: 36}
+  DEBUG machine:simulation {TICK: 39, PC: 37, ADDR: 0, OUT: 104, ACC: 104}, {OPCODE: je, ARG: 57, POS: 37}
+  DEBUG machine:simulation {TICK: 40, PC: 38, ADDR: 0, OUT: 104, ACC: 104}, {OPCODE: print, ARG: , POS: 38}
+  DEBUG machine:output output: '' << 'h'
+  DEBUG machine:simulation {TICK: 41, PC: 39, ADDR: 0, OUT: 104, ACC: 104}, {OPCODE: load, ARG: 14, POS: 39}
+  DEBUG machine:simulation {TICK: 42, PC: 40, ADDR: 14, OUT: 0, ACC: 0}, {OPCODE: addc, ARG: 1, POS: 40}
+  DEBUG machine:simulation {TICK: 43, PC: 41, ADDR: 14, OUT: 0, ACC: 1}, {OPCODE: store, ARG: 14, POS: 41}
+  DEBUG machine:simulation {TICK: 44, PC: 42, ADDR: 14, OUT: 1, ACC: 1}, {OPCODE: jmp, ARG: 36, POS: 42}
+  DEBUG machine:simulation {TICK: 45, PC: 36, ADDR: 14, OUT: 1, ACC: 1}, {OPCODE: load_indir, ARG: 14, POS: 36}
+  DEBUG machine:simulation {TICK: 48, PC: 37, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: je, ARG: 57, POS: 37}
+  DEBUG machine:simulation {TICK: 49, PC: 38, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: print, ARG: , POS: 38}
+  DEBUG machine:output output: 'h' << 'e'
+  DEBUG machine:simulation {TICK: 50, PC: 39, ADDR: 1, OUT: 101, ACC: 101}, {OPCODE: load, ARG: 14, POS: 39}
+  DEBUG machine:simulation {TICK: 51, PC: 40, ADDR: 14, OUT: 1, ACC: 1}, {OPCODE: addc, ARG: 1, POS: 40}
+  DEBUG machine:simulation {TICK: 52, PC: 41, ADDR: 14, OUT: 1, ACC: 2}, {OPCODE: store, ARG: 14, POS: 41}
+  DEBUG machine:simulation {TICK: 53, PC: 42, ADDR: 14, OUT: 2, ACC: 2}, {OPCODE: jmp, ARG: 36, POS: 42}
   DEBUG machine:simulation ...
-  DEBUG machine:output output: 'He' << 'l'
-  DEBUG machine:output output: 'Hel' << 'l'
-  DEBUG machine:output output: 'Hell' << 'o'
-  DEBUG machine:output output: 'Hello' << ' '
-  DEBUG machine:output output: 'Hello ' << 'w'
-  DEBUG machine:output output: 'Hello w' << 'o'
-  DEBUG machine:output output: 'Hello wo' << 'r'
-  DEBUG machine:output output: 'Hello wor' << 'l'
-  DEBUG machine:output output: 'Hello worl' << 'd'
-  DEBUG machine:output output: 'Hello world' << '!'
-  DEBUG machine:output output: 'Hello world!' << '\n'
-  INFO machine:simulation output_buffer: Hello world!
+  DEBUG machine:output output: 'he' << 'l'
+  DEBUG machine:output output: 'hel' << 'l'
+  DEBUG machine:output output: 'hell' << 'o'
+  DEBUG machine:output output: 'hello' << ' '
+  DEBUG machine:output output: 'hello ' << 'w'
+  DEBUG machine:output output: 'hello w' << 'o'
+  DEBUG machine:output output: 'hello wo' << 'r'
+  DEBUG machine:output output: 'hello wor' << 'l'
+  DEBUG machine:output output: 'hello worl' << 'd'
+  DEBUG machine:output output: 'hello world' << '\n'
+  INFO machine:simulation output_buffer: hello world
 
 ...
