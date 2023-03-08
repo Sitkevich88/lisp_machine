@@ -19,8 +19,9 @@ list ::= "(" function args ")"
 function ::= "setq" / "read" / "print" / "loop" / "if" / "return" 
     / "+" / "-" / ">" / "<" / "=" / "mod"
 args ::= s_expression <s_expression> <s_expression>
-atom ::= empty / word / number / var_name
+atom ::= empty / word / number / var_name / const
 
+const ::= NIL / t
 word ::= '"' [a-z A-Z 1-9 \s]+ '"'
 var_name ::= [a-zA-Z1-9]+
 number ::= [-]?[0-9]+
