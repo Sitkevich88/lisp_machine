@@ -18,7 +18,7 @@ s_expression ::= atom / list
 list ::= "(" function args ")"
 function ::= "setq" / "read" / "print" / "loop" / "if" / "return" 
     / "+" / "-" / ">" / "<" / "=" / "mod"
-args ::= s_expression s_expression s_expression
+args ::= s_expression <s_expression> <s_expression>
 atom ::= empty / word / number / var_name
 
 word ::= '"' [a-z A-Z 1-9 \s]+ '"'
