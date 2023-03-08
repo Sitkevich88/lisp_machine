@@ -175,9 +175,9 @@ Evaluator принимает s-expressions и преобразует их в м�
 2. [cat](golden/cat.yml) 
 3. [prob1](golden/prob1.yml) 
 ### Необходимые для демонстрации адекватной трансляции программ на lisp
-1. [requirements](examples/requirements.lsp) 
-2. [print loop](examples/loop.lsp) 
-3. [math](examples/math.lsp) 
+1. [requirements](examples/requirements.lisp) 
+2. [print loop](examples/loop.lisp) 
+3. [math](examples/math.lisp) 
 
 Интеграционные тесты реализованы тут: [integration_test](integration_test.py) :
 

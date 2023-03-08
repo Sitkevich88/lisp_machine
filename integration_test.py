@@ -35,7 +35,7 @@ def test_whole_by_golden(golden, caplog):
     # Создаём временную папку для тестирования приложения.
     with tempfile.TemporaryDirectory() as tmpdirname:
         # Готовим имена файлов для входных и выходных данных.
-        source = os.path.join(tmpdirname, "source.lsp")
+        source = os.path.join(tmpdirname, "source.lisp")
         input_stream = os.path.join(tmpdirname, "input.txt")
         target = os.path.join(tmpdirname, "target.json")
 
@@ -65,7 +65,7 @@ def test_whole_by_golden(golden, caplog):
 class TestWhole(unittest.TestCase):
     def test_requirements(self):
         with tempfile.TemporaryDirectory() as tmpdirname:
-            source = "examples/requirements.lsp"
+            source = "examples/requirements.lisp"
             target = os.path.join(tmpdirname, "machine_code.json")
             input_stream = "examples/io/input.txt"
 
@@ -82,7 +82,7 @@ class TestWhole(unittest.TestCase):
 
     def test_loop(self):
         with tempfile.TemporaryDirectory() as tmpdirname:
-            source = "examples/loop.lsp"
+            source = "examples/loop.lisp"
             target = os.path.join(tmpdirname, "machine_code.json")
             input_stream = "examples/io/input.txt"
 
@@ -99,7 +99,7 @@ class TestWhole(unittest.TestCase):
 
     def test_math(self):
         with tempfile.TemporaryDirectory() as tmpdirname:
-            source = "examples/math.lsp"
+            source = "examples/math.lisp"
             target = os.path.join(tmpdirname, "machine_code.json")
             input_stream = "examples/io/input.txt"
 
