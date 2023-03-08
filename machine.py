@@ -7,7 +7,7 @@ import logging
 import sys
 from isa import Opcode, read_code
 
-    
+
 class DataPath:
     def __init__(self, data_memory_size: int, input_buffer: list):
         assert data_memory_size > 0, "Data_memory size should be non-zero"
@@ -50,7 +50,7 @@ class DataPath:
                 self.acc += self.dr
 
             if self.acc > 2**31 - 1:
-                self.acc -= 2*32
+                self.acc -= 2**32
             elif self.acc < -2**31:
                 self.acc += 2**32
 

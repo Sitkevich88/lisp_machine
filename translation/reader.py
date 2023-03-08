@@ -63,8 +63,8 @@ def convert_list_to_s_expression(lisp_list):
     s_expression = SymbolicExpression(args.pop(0))
     if s_expression.operator == 'loop':
         if args[0] == 'for':
-            args.pop(0) #for
-            iter_var = args.pop(0) #i
+            args.pop(0)  # for
+            iter_var = args.pop(0)  # i
             assert args.pop(0) == 'from', 'Incorrect for loop'
             assert args.pop(1) == 'to', 'Incorrect for loop'
             iter_span = [int(args.pop(0)), int(args.pop(0))]
@@ -142,7 +142,7 @@ def read(code):
     for lisp_list in lisp_lists:
         s_expressions_from_lisp_list = convert_list_to_s_expression(lisp_list)
         s_expressions += s_expressions_from_lisp_list
-        #for exp in s_expressions_from_lisp_list:
+        #  for exp in s_expressions_from_lisp_list:
         #    print(exp)
 
     return s_expressions
