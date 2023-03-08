@@ -13,3 +13,6 @@ test-csa-lab3:
     script:
         - python3 -m coverage run --source ./ -m pytest
         - python3 -m coverage report
+        - find . -type f -name "*.py" | xargs -t python3-coverage report
+        - find . -type f -name "*.py" | xargs -t pep8 --ignore=E501
+        - find . -type f -name "*.py" | xargs -t pylint
